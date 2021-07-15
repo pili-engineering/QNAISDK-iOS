@@ -1,0 +1,6 @@
+framework module Pods_QNAIDemoTests {
+  umbrella header "Pods-QNAIDemoTests-umbrella.h"
+
+  export *
+  module * { export * }
+}

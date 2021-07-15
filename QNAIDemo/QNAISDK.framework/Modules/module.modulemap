@@ -1,0 +1,6 @@
+framework module QNAISDK {
+  umbrella header "QNAISDK.h"
+
+  export *
+  module * { export * }
+}

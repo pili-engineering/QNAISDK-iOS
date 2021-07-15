@@ -1,0 +1,823 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 51;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		3B28B870E52B0F501273DD11 /* Pods_QNAIDemoTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8EA7F6AF0C782EA0004AD81D /* Pods_QNAIDemoTests.framework */; };
+		6DE077EF83C9D120DB0780BF /* Pods_QNAIDemo_QNAIDemoUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3F2564C52FCB7AD3791A8584 /* Pods_QNAIDemo_QNAIDemoUITests.framework */; };
+		7772309D2696D2FD00235292 /* MBProgressHUD+QNShow.m in Sources */ = {isa = PBXBuildFile; fileRef = 7772309C2696D2FD00235292 /* MBProgressHUD+QNShow.m */; };
+		777230AA2696D31F00235292 /* QNMainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 777230A42696D31C00235292 /* QNMainViewController.m */; };
+		777230D02696D38800235292 /* QNNetworkUtil.m in Sources */ = {isa = PBXBuildFile; fileRef = 777230CE2696D38700235292 /* QNNetworkUtil.m */; };
+		777230D12696D38800235292 /* QNRoomUserView.m in Sources */ = {isa = PBXBuildFile; fileRef = 777230CF2696D38800235292 /* QNRoomUserView.m */; };
+		778D5AD12684390D00B64134 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 778D5AD02684390D00B64134 /* AppDelegate.m */; };
+		778D5ADA2684390D00B64134 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 778D5AD82684390D00B64134 /* Main.storyboard */; };
+		778D5ADC2684391000B64134 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 778D5ADB2684391000B64134 /* Assets.xcassets */; };
+		778D5ADF2684391000B64134 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 778D5ADD2684391000B64134 /* LaunchScreen.storyboard */; };
+		778D5AE22684391000B64134 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 778D5AE12684391000B64134 /* main.m */; };
+		778D5AEC2684391000B64134 /* QNAIDemoTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 778D5AEB2684391000B64134 /* QNAIDemoTests.m */; };
+		778D5AF72684391000B64134 /* QNAIDemoUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 778D5AF62684391000B64134 /* QNAIDemoUITests.m */; };
+		77C750A3269FE5B600866349 /* QNAISDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 77C7509F269FE5A800866349 /* QNAISDK.framework */; };
+		77C750A4269FE5B600866349 /* QNAISDK.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 77C7509F269FE5A800866349 /* QNAISDK.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		8DE885FD6C109A5853DEF4C7 /* Pods_QNAIDemo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4C2704C544F9742A64D0AA11 /* Pods_QNAIDemo.framework */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		778D5AE82684391000B64134 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 778D5AC42684390D00B64134 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 778D5ACB2684390D00B64134;
+			remoteInfo = QNAIDemo;
+		};
+		778D5AF32684391000B64134 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 778D5AC42684390D00B64134 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 778D5ACB2684390D00B64134;
+			remoteInfo = QNAIDemo;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		77722F6626969A6200235292 /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				77C750A4269FE5B600866349 /* QNAISDK.framework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
+/* Begin PBXFileReference section */
+		3F2564C52FCB7AD3791A8584 /* Pods_QNAIDemo_QNAIDemoUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_QNAIDemo_QNAIDemoUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		4C2704C544F9742A64D0AA11 /* Pods_QNAIDemo.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_QNAIDemo.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		5086099DFAE936D3DCCE634A /* Pods-QNAIDemo.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-QNAIDemo.release.xcconfig"; path = "Target Support Files/Pods-QNAIDemo/Pods-QNAIDemo.release.xcconfig"; sourceTree = "<group>"; };
+		50A6360DA05AD2186538EFC0 /* Pods-QNAIDemo.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-QNAIDemo.debug.xcconfig"; path = "Target Support Files/Pods-QNAIDemo/Pods-QNAIDemo.debug.xcconfig"; sourceTree = "<group>"; };
+		61A7CF603F986FCE91426D99 /* Pods-QNAIDemo-QNAIDemoUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-QNAIDemo-QNAIDemoUITests.release.xcconfig"; path = "Target Support Files/Pods-QNAIDemo-QNAIDemoUITests/Pods-QNAIDemo-QNAIDemoUITests.release.xcconfig"; sourceTree = "<group>"; };
+		7772309B2696D2FC00235292 /* MBProgressHUD+QNShow.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "MBProgressHUD+QNShow.h"; sourceTree = "<group>"; };
+		7772309C2696D2FD00235292 /* MBProgressHUD+QNShow.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "MBProgressHUD+QNShow.m"; sourceTree = "<group>"; };
+		777230A42696D31C00235292 /* QNMainViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QNMainViewController.m; sourceTree = "<group>"; };
+		777230A52696D31D00235292 /* QNMainViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QNMainViewController.h; sourceTree = "<group>"; };
+		777230CC2696D38500235292 /* QNRoomUserView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QNRoomUserView.h; sourceTree = "<group>"; };
+		777230CD2696D38600235292 /* QNNetworkUtil.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QNNetworkUtil.h; sourceTree = "<group>"; };
+		777230CE2696D38700235292 /* QNNetworkUtil.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QNNetworkUtil.m; sourceTree = "<group>"; };
+		777230CF2696D38800235292 /* QNRoomUserView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QNRoomUserView.m; sourceTree = "<group>"; };
+		778D5ACC2684390D00B64134 /* QNAIDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = QNAIDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		778D5ACF2684390D00B64134 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		778D5AD02684390D00B64134 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		778D5AD92684390D00B64134 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		778D5ADB2684391000B64134 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		778D5ADE2684391000B64134 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		778D5AE02684391000B64134 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		778D5AE12684391000B64134 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		778D5AE72684391000B64134 /* QNAIDemoTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = QNAIDemoTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		778D5AEB2684391000B64134 /* QNAIDemoTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = QNAIDemoTests.m; sourceTree = "<group>"; };
+		778D5AED2684391000B64134 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		778D5AF22684391000B64134 /* QNAIDemoUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = QNAIDemoUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		778D5AF62684391000B64134 /* QNAIDemoUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = QNAIDemoUITests.m; sourceTree = "<group>"; };
+		778D5AF82684391000B64134 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		77C7509F269FE5A800866349 /* QNAISDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = QNAISDK.framework; sourceTree = "<group>"; };
+		78A9456DDDD202753C3C6B32 /* Pods-QNAIDemo-QNAIDemoUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-QNAIDemo-QNAIDemoUITests.debug.xcconfig"; path = "Target Support Files/Pods-QNAIDemo-QNAIDemoUITests/Pods-QNAIDemo-QNAIDemoUITests.debug.xcconfig"; sourceTree = "<group>"; };
+		83BCA3F538D5964104F0F51E /* Pods-QNAIDemoTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-QNAIDemoTests.release.xcconfig"; path = "Target Support Files/Pods-QNAIDemoTests/Pods-QNAIDemoTests.release.xcconfig"; sourceTree = "<group>"; };
+		8EA7F6AF0C782EA0004AD81D /* Pods_QNAIDemoTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_QNAIDemoTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		B0ACE7FFF2210ACBDE72BAEF /* Pods-QNAIDemoTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-QNAIDemoTests.debug.xcconfig"; path = "Target Support Files/Pods-QNAIDemoTests/Pods-QNAIDemoTests.debug.xcconfig"; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		778D5AC92684390D00B64134 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				77C750A3269FE5B600866349 /* QNAISDK.framework in Frameworks */,
+				8DE885FD6C109A5853DEF4C7 /* Pods_QNAIDemo.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		778D5AE42684391000B64134 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				3B28B870E52B0F501273DD11 /* Pods_QNAIDemoTests.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		778D5AEF2684391000B64134 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				6DE077EF83C9D120DB0780BF /* Pods_QNAIDemo_QNAIDemoUITests.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		2628E180B28DA30DEC076A62 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				50A6360DA05AD2186538EFC0 /* Pods-QNAIDemo.debug.xcconfig */,
+				5086099DFAE936D3DCCE634A /* Pods-QNAIDemo.release.xcconfig */,
+				78A9456DDDD202753C3C6B32 /* Pods-QNAIDemo-QNAIDemoUITests.debug.xcconfig */,
+				61A7CF603F986FCE91426D99 /* Pods-QNAIDemo-QNAIDemoUITests.release.xcconfig */,
+				B0ACE7FFF2210ACBDE72BAEF /* Pods-QNAIDemoTests.debug.xcconfig */,
+				83BCA3F538D5964104F0F51E /* Pods-QNAIDemoTests.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
+		778D5AC32684390D00B64134 = {
+			isa = PBXGroup;
+			children = (
+				77C7509F269FE5A800866349 /* QNAISDK.framework */,
+				778D5ACE2684390D00B64134 /* QNAIDemo */,
+				778D5AEA2684391000B64134 /* QNAIDemoTests */,
+				778D5AF52684391000B64134 /* QNAIDemoUITests */,
+				778D5ACD2684390D00B64134 /* Products */,
+				2628E180B28DA30DEC076A62 /* Pods */,
+				CA3AA41A906E03EAA8C73788 /* Frameworks */,
+			);
+			sourceTree = "<group>";
+		};
+		778D5ACD2684390D00B64134 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				778D5ACC2684390D00B64134 /* QNAIDemo.app */,
+				778D5AE72684391000B64134 /* QNAIDemoTests.xctest */,
+				778D5AF22684391000B64134 /* QNAIDemoUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		778D5ACE2684390D00B64134 /* QNAIDemo */ = {
+			isa = PBXGroup;
+			children = (
+				778D5ACF2684390D00B64134 /* AppDelegate.h */,
+				778D5AD02684390D00B64134 /* AppDelegate.m */,
+				7772309B2696D2FC00235292 /* MBProgressHUD+QNShow.h */,
+				7772309C2696D2FD00235292 /* MBProgressHUD+QNShow.m */,
+				777230CD2696D38600235292 /* QNNetworkUtil.h */,
+				777230CE2696D38700235292 /* QNNetworkUtil.m */,
+				777230CC2696D38500235292 /* QNRoomUserView.h */,
+				777230CF2696D38800235292 /* QNRoomUserView.m */,
+				777230A52696D31D00235292 /* QNMainViewController.h */,
+				777230A42696D31C00235292 /* QNMainViewController.m */,
+				778D5AD82684390D00B64134 /* Main.storyboard */,
+				778D5ADB2684391000B64134 /* Assets.xcassets */,
+				778D5ADD2684391000B64134 /* LaunchScreen.storyboard */,
+				778D5AE02684391000B64134 /* Info.plist */,
+				778D5AE12684391000B64134 /* main.m */,
+			);
+			path = QNAIDemo;
+			sourceTree = "<group>";
+		};
+		778D5AEA2684391000B64134 /* QNAIDemoTests */ = {
+			isa = PBXGroup;
+			children = (
+				778D5AEB2684391000B64134 /* QNAIDemoTests.m */,
+				778D5AED2684391000B64134 /* Info.plist */,
+			);
+			path = QNAIDemoTests;
+			sourceTree = "<group>";
+		};
+		778D5AF52684391000B64134 /* QNAIDemoUITests */ = {
+			isa = PBXGroup;
+			children = (
+				778D5AF62684391000B64134 /* QNAIDemoUITests.m */,
+				778D5AF82684391000B64134 /* Info.plist */,
+			);
+			path = QNAIDemoUITests;
+			sourceTree = "<group>";
+		};
+		CA3AA41A906E03EAA8C73788 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				4C2704C544F9742A64D0AA11 /* Pods_QNAIDemo.framework */,
+				3F2564C52FCB7AD3791A8584 /* Pods_QNAIDemo_QNAIDemoUITests.framework */,
+				8EA7F6AF0C782EA0004AD81D /* Pods_QNAIDemoTests.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		778D5ACB2684390D00B64134 /* QNAIDemo */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 778D5AFB2684391000B64134 /* Build configuration list for PBXNativeTarget "QNAIDemo" */;
+			buildPhases = (
+				0BE1EAAB87C962613B4218EE /* [CP] Check Pods Manifest.lock */,
+				778D5AC82684390D00B64134 /* Sources */,
+				778D5AC92684390D00B64134 /* Frameworks */,
+				778D5ACA2684390D00B64134 /* Resources */,
+				92547E2C91921BDD98AC3717 /* [CP] Embed Pods Frameworks */,
+				77722F6626969A6200235292 /* Embed Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = QNAIDemo;
+			productName = QNAIDemo;
+			productReference = 778D5ACC2684390D00B64134 /* QNAIDemo.app */;
+			productType = "com.apple.product-type.application";
+		};
+		778D5AE62684391000B64134 /* QNAIDemoTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 778D5AFE2684391000B64134 /* Build configuration list for PBXNativeTarget "QNAIDemoTests" */;
+			buildPhases = (
+				0A12C634E90AC69A98DB1052 /* [CP] Check Pods Manifest.lock */,
+				778D5AE32684391000B64134 /* Sources */,
+				778D5AE42684391000B64134 /* Frameworks */,
+				778D5AE52684391000B64134 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				778D5AE92684391000B64134 /* PBXTargetDependency */,
+			);
+			name = QNAIDemoTests;
+			productName = QNAIDemoTests;
+			productReference = 778D5AE72684391000B64134 /* QNAIDemoTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		778D5AF12684391000B64134 /* QNAIDemoUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 778D5B012684391000B64134 /* Build configuration list for PBXNativeTarget "QNAIDemoUITests" */;
+			buildPhases = (
+				0FC2B9400E2339073A1DCC86 /* [CP] Check Pods Manifest.lock */,
+				778D5AEE2684391000B64134 /* Sources */,
+				778D5AEF2684391000B64134 /* Frameworks */,
+				778D5AF02684391000B64134 /* Resources */,
+				2AA88041446369A27B5E0280 /* [CP] Embed Pods Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				778D5AF42684391000B64134 /* PBXTargetDependency */,
+			);
+			name = QNAIDemoUITests;
+			productName = QNAIDemoUITests;
+			productReference = 778D5AF22684391000B64134 /* QNAIDemoUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		778D5AC42684390D00B64134 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 1240;
+				TargetAttributes = {
+					778D5ACB2684390D00B64134 = {
+						CreatedOnToolsVersion = 12.4;
+					};
+					778D5AE62684391000B64134 = {
+						CreatedOnToolsVersion = 12.4;
+						TestTargetID = 778D5ACB2684390D00B64134;
+					};
+					778D5AF12684391000B64134 = {
+						CreatedOnToolsVersion = 12.4;
+						TestTargetID = 778D5ACB2684390D00B64134;
+					};
+				};
+			};
+			buildConfigurationList = 778D5AC72684390D00B64134 /* Build configuration list for PBXProject "QNAIDemo" */;
+			compatibilityVersion = "Xcode 9.3";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 778D5AC32684390D00B64134;
+			productRefGroup = 778D5ACD2684390D00B64134 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				778D5ACB2684390D00B64134 /* QNAIDemo */,
+				778D5AE62684391000B64134 /* QNAIDemoTests */,
+				778D5AF12684391000B64134 /* QNAIDemoUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		778D5ACA2684390D00B64134 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				778D5ADF2684391000B64134 /* LaunchScreen.storyboard in Resources */,
+				778D5ADC2684391000B64134 /* Assets.xcassets in Resources */,
+				778D5ADA2684390D00B64134 /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		778D5AE52684391000B64134 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		778D5AF02684391000B64134 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		0A12C634E90AC69A98DB1052 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-QNAIDemoTests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		0BE1EAAB87C962613B4218EE /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-QNAIDemo-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		0FC2B9400E2339073A1DCC86 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-QNAIDemo-QNAIDemoUITests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		2AA88041446369A27B5E0280 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-QNAIDemo-QNAIDemoUITests/Pods-QNAIDemo-QNAIDemoUITests-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-QNAIDemo-QNAIDemoUITests/Pods-QNAIDemo-QNAIDemoUITests-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-QNAIDemo-QNAIDemoUITests/Pods-QNAIDemo-QNAIDemoUITests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		92547E2C91921BDD98AC3717 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-QNAIDemo/Pods-QNAIDemo-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-QNAIDemo/Pods-QNAIDemo-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-QNAIDemo/Pods-QNAIDemo-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		778D5AC82684390D00B64134 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				777230D12696D38800235292 /* QNRoomUserView.m in Sources */,
+				7772309D2696D2FD00235292 /* MBProgressHUD+QNShow.m in Sources */,
+				777230AA2696D31F00235292 /* QNMainViewController.m in Sources */,
+				778D5AD12684390D00B64134 /* AppDelegate.m in Sources */,
+				778D5AE22684391000B64134 /* main.m in Sources */,
+				777230D02696D38800235292 /* QNNetworkUtil.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		778D5AE32684391000B64134 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				778D5AEC2684391000B64134 /* QNAIDemoTests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		778D5AEE2684391000B64134 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				778D5AF72684391000B64134 /* QNAIDemoUITests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		778D5AE92684391000B64134 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 778D5ACB2684390D00B64134 /* QNAIDemo */;
+			targetProxy = 778D5AE82684391000B64134 /* PBXContainerItemProxy */;
+		};
+		778D5AF42684391000B64134 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 778D5ACB2684390D00B64134 /* QNAIDemo */;
+			targetProxy = 778D5AF32684391000B64134 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		778D5AD82684390D00B64134 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				778D5AD92684390D00B64134 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		778D5ADD2684391000B64134 /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				778D5ADE2684391000B64134 /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		778D5AF92684391000B64134 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.4;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+			};
+			name = Debug;
+		};
+		778D5AFA2684391000B64134 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.4;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		778D5AFC2684391000B64134 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 50A6360DA05AD2186538EFC0 /* Pods-QNAIDemo.debug.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = W2TP34G2MM;
+				ENABLE_BITCODE = NO;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"${PODS_CONFIGURATION_BUILD_DIR}/AFNetworking",
+					"${PODS_CONFIGURATION_BUILD_DIR}/MBProgressHUD",
+					"${PODS_CONFIGURATION_BUILD_DIR}/MJExtension",
+					"${PODS_CONFIGURATION_BUILD_DIR}/SocketRocket",
+					"${PODS_CONFIGURATION_BUILD_DIR}/YYCategories",
+					"$(SRCROOT)/../../../../../Library/Developer/Xcode/DerivedData/QNAIDemo-goxbuntluvaembhfhdzmkwqzplha/Build/Products/Debug-iphoneos/QNAISDK.framework",
+					"$(PROJECT_DIR)/QNAIDemo",
+					"$(PROJECT_DIR)",
+				);
+				HEADER_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"${PODS_CONFIGURATION_BUILD_DIR}/AFNetworking/AFNetworking.framework/Headers\"",
+					"\"${PODS_CONFIGURATION_BUILD_DIR}/MBProgressHUD/MBProgressHUD.framework/Headers\"",
+					"\"${PODS_CONFIGURATION_BUILD_DIR}/MJExtension/MJExtension.framework/Headers\"",
+					"\"${PODS_CONFIGURATION_BUILD_DIR}/SocketRocket/SocketRocket.framework/Headers\"",
+					"\"${PODS_CONFIGURATION_BUILD_DIR}/YYCategories/YYCategories.framework/Headers\"",
+					"$(SRCROOT)/../../../../../Library/Developer/Xcode/DerivedData/QNAIDemo-goxbuntluvaembhfhdzmkwqzplha/Build/Products/Debug-iphoneos/QNAISDK.framework",
+				);
+				INFOPLIST_FILE = QNAIDemo/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.qiniu.QNAIDemo;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		778D5AFD2684391000B64134 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 5086099DFAE936D3DCCE634A /* Pods-QNAIDemo.release.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = W2TP34G2MM;
+				ENABLE_BITCODE = NO;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"${PODS_CONFIGURATION_BUILD_DIR}/AFNetworking",
+					"${PODS_CONFIGURATION_BUILD_DIR}/MBProgressHUD",
+					"${PODS_CONFIGURATION_BUILD_DIR}/MJExtension",
+					"${PODS_CONFIGURATION_BUILD_DIR}/SocketRocket",
+					"${PODS_CONFIGURATION_BUILD_DIR}/YYCategories",
+					"$(SRCROOT)/../../../../../Library/Developer/Xcode/DerivedData/QNAIDemo-goxbuntluvaembhfhdzmkwqzplha/Build/Products/Debug-iphoneos/QNAISDK.framework",
+					"$(PROJECT_DIR)/QNAIDemo",
+					"$(PROJECT_DIR)",
+				);
+				HEADER_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"${PODS_CONFIGURATION_BUILD_DIR}/AFNetworking/AFNetworking.framework/Headers\"",
+					"\"${PODS_CONFIGURATION_BUILD_DIR}/MBProgressHUD/MBProgressHUD.framework/Headers\"",
+					"\"${PODS_CONFIGURATION_BUILD_DIR}/MJExtension/MJExtension.framework/Headers\"",
+					"\"${PODS_CONFIGURATION_BUILD_DIR}/SocketRocket/SocketRocket.framework/Headers\"",
+					"\"${PODS_CONFIGURATION_BUILD_DIR}/YYCategories/YYCategories.framework/Headers\"",
+					"$(SRCROOT)/../../../../../Library/Developer/Xcode/DerivedData/QNAIDemo-goxbuntluvaembhfhdzmkwqzplha/Build/Products/Debug-iphoneos/QNAISDK.framework",
+				);
+				INFOPLIST_FILE = QNAIDemo/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.qiniu.QNAIDemo;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		778D5AFF2684391000B64134 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = B0ACE7FFF2210ACBDE72BAEF /* Pods-QNAIDemoTests.debug.xcconfig */;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = GDFHW66V92;
+				INFOPLIST_FILE = QNAIDemoTests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.4;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.qiniu.QNAIDemoTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/QNAIDemo.app/QNAIDemo";
+			};
+			name = Debug;
+		};
+		778D5B002684391000B64134 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 83BCA3F538D5964104F0F51E /* Pods-QNAIDemoTests.release.xcconfig */;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = GDFHW66V92;
+				INFOPLIST_FILE = QNAIDemoTests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.4;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.qiniu.QNAIDemoTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/QNAIDemo.app/QNAIDemo";
+			};
+			name = Release;
+		};
+		778D5B022684391000B64134 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 78A9456DDDD202753C3C6B32 /* Pods-QNAIDemo-QNAIDemoUITests.debug.xcconfig */;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = GDFHW66V92;
+				INFOPLIST_FILE = QNAIDemoUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.qiniu.QNAIDemoUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = QNAIDemo;
+			};
+			name = Debug;
+		};
+		778D5B032684391000B64134 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 61A7CF603F986FCE91426D99 /* Pods-QNAIDemo-QNAIDemoUITests.release.xcconfig */;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = GDFHW66V92;
+				INFOPLIST_FILE = QNAIDemoUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.qiniu.QNAIDemoUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = QNAIDemo;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		778D5AC72684390D00B64134 /* Build configuration list for PBXProject "QNAIDemo" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				778D5AF92684391000B64134 /* Debug */,
+				778D5AFA2684391000B64134 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		778D5AFB2684391000B64134 /* Build configuration list for PBXNativeTarget "QNAIDemo" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				778D5AFC2684391000B64134 /* Debug */,
+				778D5AFD2684391000B64134 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		778D5AFE2684391000B64134 /* Build configuration list for PBXNativeTarget "QNAIDemoTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				778D5AFF2684391000B64134 /* Debug */,
+				778D5B002684391000B64134 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		778D5B012684391000B64134 /* Build configuration list for PBXNativeTarget "QNAIDemoUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				778D5B022684391000B64134 /* Debug */,
+				778D5B032684391000B64134 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 778D5AC42684390D00B64134 /* Project object */;
+}
