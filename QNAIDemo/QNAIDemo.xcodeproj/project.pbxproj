@@ -20,8 +20,8 @@
 		778D5AE22684391000B64134 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 778D5AE12684391000B64134 /* main.m */; };
 		778D5AEC2684391000B64134 /* QNAIDemoTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 778D5AEB2684391000B64134 /* QNAIDemoTests.m */; };
 		778D5AF72684391000B64134 /* QNAIDemoUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 778D5AF62684391000B64134 /* QNAIDemoUITests.m */; };
-		77C750A3269FE5B600866349 /* QNAISDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 77C7509F269FE5A800866349 /* QNAISDK.framework */; };
-		77C750A4269FE5B600866349 /* QNAISDK.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 77C7509F269FE5A800866349 /* QNAISDK.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		77CD959926BD194100431618 /* QNAISDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 77CD959526BD193A00431618 /* QNAISDK.framework */; };
+		77CD959A26BD194100431618 /* QNAISDK.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 77CD959526BD193A00431618 /* QNAISDK.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		8DE885FD6C109A5853DEF4C7 /* Pods_QNAIDemo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4C2704C544F9742A64D0AA11 /* Pods_QNAIDemo.framework */; };
 /* End PBXBuildFile section */
 
@@ -43,13 +43,13 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXCopyFilesBuildPhase section */
-		77722F6626969A6200235292 /* Embed Frameworks */ = {
+		77C7517A26A5861E00866349 /* Embed Frameworks */ = {
 			isa = PBXCopyFilesBuildPhase;
 			buildActionMask = 2147483647;
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
-				77C750A4269FE5B600866349 /* QNAISDK.framework in Embed Frameworks */,
+				77CD959A26BD194100431618 /* QNAISDK.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -84,7 +84,7 @@
 		778D5AF22684391000B64134 /* QNAIDemoUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = QNAIDemoUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		778D5AF62684391000B64134 /* QNAIDemoUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = QNAIDemoUITests.m; sourceTree = "<group>"; };
 		778D5AF82684391000B64134 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		77C7509F269FE5A800866349 /* QNAISDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = QNAISDK.framework; sourceTree = "<group>"; };
+		77CD959526BD193A00431618 /* QNAISDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = QNAISDK.framework; sourceTree = "<group>"; };
 		78A9456DDDD202753C3C6B32 /* Pods-QNAIDemo-QNAIDemoUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-QNAIDemo-QNAIDemoUITests.debug.xcconfig"; path = "Target Support Files/Pods-QNAIDemo-QNAIDemoUITests/Pods-QNAIDemo-QNAIDemoUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		83BCA3F538D5964104F0F51E /* Pods-QNAIDemoTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-QNAIDemoTests.release.xcconfig"; path = "Target Support Files/Pods-QNAIDemoTests/Pods-QNAIDemoTests.release.xcconfig"; sourceTree = "<group>"; };
 		8EA7F6AF0C782EA0004AD81D /* Pods_QNAIDemoTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_QNAIDemoTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -96,7 +96,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				77C750A3269FE5B600866349 /* QNAISDK.framework in Frameworks */,
+				77CD959926BD194100431618 /* QNAISDK.framework in Frameworks */,
 				8DE885FD6C109A5853DEF4C7 /* Pods_QNAIDemo.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -136,7 +136,7 @@
 		778D5AC32684390D00B64134 = {
 			isa = PBXGroup;
 			children = (
-				77C7509F269FE5A800866349 /* QNAISDK.framework */,
+				77CD959526BD193A00431618 /* QNAISDK.framework */,
 				778D5ACE2684390D00B64134 /* QNAIDemo */,
 				778D5AEA2684391000B64134 /* QNAIDemoTests */,
 				778D5AF52684391000B64134 /* QNAIDemoUITests */,
@@ -218,7 +218,7 @@
 				778D5AC92684390D00B64134 /* Frameworks */,
 				778D5ACA2684390D00B64134 /* Resources */,
 				92547E2C91921BDD98AC3717 /* [CP] Embed Pods Frameworks */,
-				77722F6626969A6200235292 /* Embed Frameworks */,
+				77C7517A26A5861E00866349 /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
@@ -640,7 +640,6 @@
 					"$(inherited)",
 					"\"${PODS_CONFIGURATION_BUILD_DIR}/AFNetworking/AFNetworking.framework/Headers\"",
 					"\"${PODS_CONFIGURATION_BUILD_DIR}/MBProgressHUD/MBProgressHUD.framework/Headers\"",
-					"\"${PODS_CONFIGURATION_BUILD_DIR}/MJExtension/MJExtension.framework/Headers\"",
 					"\"${PODS_CONFIGURATION_BUILD_DIR}/SocketRocket/SocketRocket.framework/Headers\"",
 					"\"${PODS_CONFIGURATION_BUILD_DIR}/YYCategories/YYCategories.framework/Headers\"",
 					"$(SRCROOT)/../../../../../Library/Developer/Xcode/DerivedData/QNAIDemo-goxbuntluvaembhfhdzmkwqzplha/Build/Products/Debug-iphoneos/QNAISDK.framework",
@@ -681,7 +680,6 @@
 					"$(inherited)",
 					"\"${PODS_CONFIGURATION_BUILD_DIR}/AFNetworking/AFNetworking.framework/Headers\"",
 					"\"${PODS_CONFIGURATION_BUILD_DIR}/MBProgressHUD/MBProgressHUD.framework/Headers\"",
-					"\"${PODS_CONFIGURATION_BUILD_DIR}/MJExtension/MJExtension.framework/Headers\"",
 					"\"${PODS_CONFIGURATION_BUILD_DIR}/SocketRocket/SocketRocket.framework/Headers\"",
 					"\"${PODS_CONFIGURATION_BUILD_DIR}/YYCategories/YYCategories.framework/Headers\"",
 					"$(SRCROOT)/../../../../../Library/Developer/Xcode/DerivedData/QNAIDemo-goxbuntluvaembhfhdzmkwqzplha/Build/Products/Debug-iphoneos/QNAISDK.framework",

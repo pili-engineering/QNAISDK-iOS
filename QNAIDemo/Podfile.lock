@@ -17,7 +17,6 @@ PODS:
   - IQKeyboardManager (6.5.6)
   - Masonry (1.1.0)
   - MBProgressHUD (1.2.0)
-  - MJExtension (3.3.0)
   - QNRTCKit (3.0.2):
     - QNRTCKit/Core (= 3.0.2)
   - QNRTCKit/Core (3.0.2)
@@ -31,7 +30,6 @@ DEPENDENCIES:
   - IQKeyboardManager
   - Masonry
   - MBProgressHUD
-  - MJExtension
   - QNRTCKit
   - SocketRocket
   - YYCategories
@@ -42,7 +40,6 @@ SPEC REPOS:
     - IQKeyboardManager
     - Masonry
     - MBProgressHUD
-    - MJExtension
     - QNRTCKit
     - SocketRocket
     - YYCategories
@@ -52,11 +49,10 @@ SPEC CHECKSUMS:
   IQKeyboardManager: 2a6e97afdafc7becf0cb17a9a8d795e3a980717f
   Masonry: 678fab65091a9290e40e2832a55e7ab731aad201
   MBProgressHUD: 3ee5efcc380f6a79a7cc9b363dd669c5e1ae7406
-  MJExtension: 01704cca2b60a214c10761b6491eab74069d68a9
   QNRTCKit: 8e39a3d0f80cae7aec40618e14510b347f42dc96
   SocketRocket: d57c7159b83c3c6655745cd15302aa24b6bae531
   YYCategories: 6bcd4314c6661a561410dce4a793379ebd306abd
 
-PODFILE CHECKSUM: fb4f5de2e2285592c3b6608666bdd94f5954d660
+PODFILE CHECKSUM: 86c9c781ab71b20f57788003345a6db85ac856d7
 
 COCOAPODS: 1.10.1

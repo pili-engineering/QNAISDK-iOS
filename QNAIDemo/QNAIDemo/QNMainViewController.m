@@ -90,11 +90,11 @@ typedef enum{
     UIAlertAction *cancelAction = [UIAlertAction actionWithTitle:@"取消" style:UIAlertActionStyleCancel handler:^(UIAlertAction *action) {}];
         
     UIAlertAction *otherAction = [UIAlertAction actionWithTitle:@"开始" style:UIAlertActionStyleDefault handler:^(UIAlertAction *action) {
-                
+                        
         QNTextToSpeakParams *params = [[QNTextToSpeakParams alloc]init];
         params.text = alertController.textFields.firstObject.text;
         params.speaker = @"female3";
-        params.audio_encoding = @"wav";
+        params.audio_encoding = @"mp3";
         params.sample_rate = 16000;
         params.volume = 80;
         params.speed = 0;
@@ -203,6 +203,8 @@ typedef enum{
     params.image_b64 = self.imageBase64Str;
     [MBProgressHUD showStatus];
     [QNFaceDetect startDetectWithParams:params complete:^(QNFaceDetectResult * _Nonnull result) {
+        
+        
         [MBProgressHUD dismiss];
         NSString *resultStr = @"未识别到人脸";
 
@@ -423,7 +425,7 @@ typedef enum{
 
 - (void)track:(QNTrack *)track didGetAudioBuffer:(AudioBuffer *)audioBuffer bitsPerSample:(NSUInteger)bitsPerSample sampleRate:(NSUInteger)sampleRate {
     
-    NSLog(@"trackId: %@ tag: %@ RTC房间音频帧",track.trackID,track.tag);
+//    NSLog(@"trackId: %@ tag: %@ RTC房间音频帧",track.trackID,track.tag);
 }
 
 

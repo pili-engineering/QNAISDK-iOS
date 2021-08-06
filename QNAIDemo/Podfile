@@ -7,7 +7,6 @@ target 'QNAIDemo' do
 
   # Pods for QNAIDemo
 
-	pod 'MJExtension'
   pod 'YYCategories'
 	pod 'AFNetworking'
   pod 'MBProgressHUD'
