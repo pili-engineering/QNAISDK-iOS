@@ -105,20 +105,7 @@ params.data_uri_b = @"对比图片2的base64Str";
    
   ```
    
-   ### 身份证识别OCR
-   
-   ```
-   
-     QNAIIDCardDetectParams *params = [[QNAIIDCardDetectParams alloc]init];
-    params.image = @"需要识别的base64Str格式身份证照片";
-    params.ref_side = @"Any";// 当图片中同时存在身份证正反面时，通过该参数指定识别的版面
-        
-    [QNAIIDCardDetect startDetectWithParams:params complete:^(QNAIIDCardResult * _Nonnull result) {
-            //识别结果            
-    } failure:^(NSError * _Nonnull error) {
-        
-    }];
-   ```
+
    
    ### 文字转语音
    ```

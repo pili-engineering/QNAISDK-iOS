@@ -16,11 +16,12 @@ NS_ASSUME_NONNULL_BEGIN
 // 身份证识别OCR
 @interface QNAIIDCardDetect : NSObject
 
++ (instancetype)shareManager;
 /// 开始进行身份证识别
 /// @param params 识别请求参数
 /// @param complete 成功回调
 /// @param failure 失败回调
-+ (void)startDetectWithParams:(QNAIIDCardDetectParams *)params complete:(void (^)(QNAIIDCardResult *result))complete failure:(nonnull void (^)(NSError * _Nonnull error))failure;
+- (void)startDetectWithVideoTrack:(QNTrack *)track params:(QNAIIDCardDetectParams *)params complete:(void (^)(QNAIIDCardResult *result))complete failure:(nonnull void (^)(NSError * _Nonnull error))failure;
 
 @end
 

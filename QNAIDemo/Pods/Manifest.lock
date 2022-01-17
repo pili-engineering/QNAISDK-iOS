@@ -14,13 +14,10 @@ PODS:
   - AFNetworking/Serialization (4.0.1)
   - AFNetworking/UIKit (4.0.1):
     - AFNetworking/NSURLSession
-  - IQKeyboardManager (6.5.6)
+  - IQKeyboardManager (6.5.9)
   - Masonry (1.1.0)
   - MBProgressHUD (1.2.0)
-  - QNRTCKit (3.0.2):
-    - QNRTCKit/Core (= 3.0.2)
-  - QNRTCKit/Core (3.0.2)
-  - SocketRocket (0.5.1)
+  - SocketRocket (0.6.0)
   - YYCategories (1.0.4):
     - YYCategories/no-arc (= 1.0.4)
   - YYCategories/no-arc (1.0.4)
@@ -30,8 +27,7 @@ DEPENDENCIES:
   - IQKeyboardManager
   - Masonry
   - MBProgressHUD
-  - QNRTCKit
-  - SocketRocket
+  - SocketRocket (= 0.6.0)
   - YYCategories
 
 SPEC REPOS:
@@ -40,19 +36,17 @@ SPEC REPOS:
     - IQKeyboardManager
     - Masonry
     - MBProgressHUD
-    - QNRTCKit
     - SocketRocket
     - YYCategories
 
 SPEC CHECKSUMS:
   AFNetworking: 7864c38297c79aaca1500c33288e429c3451fdce
-  IQKeyboardManager: 2a6e97afdafc7becf0cb17a9a8d795e3a980717f
+  IQKeyboardManager: 241cc94ccabc9deb8f8bd7d12f00d73288d13ecc
   Masonry: 678fab65091a9290e40e2832a55e7ab731aad201
   MBProgressHUD: 3ee5efcc380f6a79a7cc9b363dd669c5e1ae7406
-  QNRTCKit: 8e39a3d0f80cae7aec40618e14510b347f42dc96
-  SocketRocket: d57c7159b83c3c6655745cd15302aa24b6bae531
+  SocketRocket: fccef3f9c5cedea1353a9ef6ada904fde10d6608
   YYCategories: 6bcd4314c6661a561410dce4a793379ebd306abd
 
-PODFILE CHECKSUM: 86c9c781ab71b20f57788003345a6db85ac856d7
+PODFILE CHECKSUM: 274cf5ad517b7443b9b586ff70d54b9818f6e48f
 
-COCOAPODS: 1.10.1
+COCOAPODS: 1.11.2

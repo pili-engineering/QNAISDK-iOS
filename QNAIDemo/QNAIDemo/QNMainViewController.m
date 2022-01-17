@@ -18,6 +18,9 @@
 typedef enum{
     QNAITaskType_Action, //动作活体
     QNAITaskType_Flash,//光线活体
+    QNAITaskType_AuthoritativeFaceCompare,//权威人脸对比
+    QNAITaskType_AuthorityActionFaceComparer,//权威动作活体
+    QNAITaskType_OCRDetect,//ocr识别
     QNAITaskType_FaceCompare,//人脸对比
     QNAITaskType_FaceDetect,//人脸识别
     QNAITaskType_IDCardDetect,//身份证识别
@@ -41,10 +44,11 @@ typedef enum{
 @property (nonatomic, strong) QNTrack *cameraTrack;
 
 @property (nonatomic, strong) UIImage *compareImage;//用来人脸对比的图片
-@property (nonatomic, strong) UIImage *IDCardImage;//用来身份证识别的图片
 
 @property (nonatomic, copy) NSString *imageBase64Str;
 @property (nonatomic, assign) QNAITaskType taskType;
+
+@property (nonatomic,strong) MPMoviePlayerController *mpcontrol;
 
 
 @end
@@ -60,8 +64,8 @@ typedef enum{
 
 - (void)setupButtons {
     
-    NSArray *buttonTitles = @[ @"语音转文字",@"人脸对比",@"人脸识别",@"动作活体检测",@"光线活体检测",@"身份证识别",@"文字转语音"];
-    NSArray *selectors = @[@"audioToText",@"faceCompare",@"faceDetect",@"actionLiveDetect",@"flashLiveDetect",@"IDCardDetect",@"textToSpeak"];
+    NSArray *buttonTitles = @[ @"语音转文字",@"权威人脸对比",@"权威动作活体检测",@     "OCR识别",@"人脸对比",@"人脸识别",@"动作活体检测",@"光线活体检测",@"身份证识别",@"文字转语音"];
+    NSArray *selectors = @[@"audioToText",@"authoritativeFaceCompare",@"authorityActionFaceComparer",@"OCRDetect",@"faceCompare",@"faceDetect",@"actionLiveDetect",@"flashLiveDetect",@"IDCardDetect",@"textToSpeak"];
     
     for (int i = 0; i < buttonTitles.count; i ++) {
         UIButton *button = [[UIButton alloc] init];
@@ -128,6 +132,7 @@ typedef enum{
 
     QNSpeakToTextParams *params = [[QNSpeakToTextParams alloc]init];
     params.force_final = YES;
+    params.hot_words = @"清除,1;你好,1";
     self.endSpeakButton.hidden = NO;
     self.textView.hidden = NO;
     self.textView.text = @"";
@@ -138,6 +143,7 @@ typedef enum{
         }
         
     } failure:^(NSError *error) {
+        
     }];
 
   
@@ -177,13 +183,8 @@ typedef enum{
 
 - (void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary<UIImagePickerControllerInfoKey,id> *)info {
     
-    if (self.taskType == QNAITaskType_FaceCompare) {
-        self.compareImage = [info objectForKey:UIImagePickerControllerOriginalImage];
-        [self startFaceCompare];
-    } else if (self.taskType == QNAITaskType_IDCardDetect){
-        self.IDCardImage = [info objectForKey:UIImagePickerControllerOriginalImage];
-        [self startIDCardDetect];
-    }
+    self.compareImage = [info objectForKey:UIImagePickerControllerOriginalImage];
+    [self startFaceCompare];
     
     [picker dismissViewControllerAnimated:YES completion:nil];
 }
@@ -191,6 +192,78 @@ typedef enum{
 - (void)imagePickerControllerDidCancel:(UIImagePickerController *)picker {
     [picker dismissViewControllerAnimated:YES completion:nil];
 }
+
+//权威人脸对比
+-(void)authoritativeFaceCompare {
+    
+    self.cameraTrack.videoDelegate = self;
+    self.taskType = QNAITaskType_AuthoritativeFaceCompare;
+    
+    QNAuthoritativeFaceParams *params = [QNAuthoritativeFaceParams new];
+    params.idcard = @"360312199411162026";
+    params.realname = @"郭茜";
+    [[QNAuthoritativeFaceComparer shareManager] startDetectWithVideoTrack:self.cameraTrack params:params complete:^(QNAuthoritativeFaceResult * _Nonnull result) {
+            
+        NSString *resultStr = @"人脸不匹配";
+
+        if (result.errorcode == 0) {
+            resultStr = [NSString stringWithFormat:@"人脸匹配，相似度%@",result.similarity];
+        }
+        [self showResultAlertWithTitle:@"权威人脸检测" content:resultStr];
+
+        } failure:^(NSError * _Nonnull error) {
+            [self showResultAlertWithTitle:@"权威人脸检测" content:@"检测失败"];
+        }];
+    
+    
+}
+
+//权威动作活体检测
+- (void)authorityActionFaceComparer {
+    
+    self.cameraTrack.videoDelegate = self;
+    self.taskType = QNAITaskType_AuthorityActionFaceComparer;
+    
+    QNAuthoritativeFaceParams *params = [QNAuthoritativeFaceParams new];
+    params.idcard = @"360312199411162026";
+    params.realname = @"郭茜";
+    [[QNAuthorityActionFaceComparer shareManager] startDetectWithTrack:self.cameraTrack actionTypes:@[@(QNAuthorityActionFaceShake)] params:params];
+    
+    [self showCollectAlertWithComplete:^ {
+            
+        [MBProgressHUD showStatus];
+        
+        [[QNAuthorityActionFaceComparer shareManager] detectComplete:^(QNActionLiveDetectResult * _Nonnull result, QNAuthoritativeFaceResult * _Nonnull authoritativeResult) {
+                    
+            [MBProgressHUD dismiss];
+            NSString *resultStr = [NSString  stringWithFormat:@"动作活体状态：%ld\n权威人脸检测%@",result.live_status,authoritativeResult.similarity > 0 ? @"通过" : @"不通过"];
+            [self showResultAlertWithTitle:@"动作活体检测(摇头)" content:resultStr];
+            self.cameraTrack.videoDelegate = self;
+        } failure:^(NSError * _Nonnull error) {
+            [MBProgressHUD dismiss];
+            self.cameraTrack.videoDelegate = self;
+        }];
+    }];
+    
+}
+
+//ocr识别
+- (void)OCRDetect {
+    
+    self.cameraTrack.videoDelegate = self;
+    self.taskType = QNAITaskType_OCRDetect;
+    [[QNOCRDetect shareManager] startDetectWithVideoTrack:self.cameraTrack complete:^(OCRDetectResult * _Nonnull result) {
+        if (result.data.count == 0) {
+            [self showResultAlertWithTitle:@"OCR识别" content:@"识别失败"];
+        } else {
+            [self showResultAlertWithTitle:@"OCR识别" content:result.data.firstObject.text];
+        }
+            
+        } failure:^(NSError * _Nonnull error) {
+            
+        }];
+}
+
 
 //人脸识别
 - (void)faceDetect {
@@ -238,12 +311,33 @@ typedef enum{
             NSString *resultStr = [NSString stringWithFormat:@"动作活体状态：%ld",result.live_status];
             [self showResultAlertWithTitle:@"动作活体检测(摇头)" content:resultStr];
             self.cameraTrack.videoDelegate = self;
-            
+//            [self play];
         } failure:^(NSError * _Nonnull error) {
             [MBProgressHUD dismiss];
             self.cameraTrack.videoDelegate = self;
         }];
     }];
+    
+    
+}
+
+- (void)play {
+
+    NSString *documentPath= NSSearchPathForDirectoriesInDomains(NSDocumentDirectory,NSUserDomainMask,YES).firstObject;
+    NSString *moviePath = [documentPath  stringByAppendingPathComponent:[NSString stringWithFormat:@"%@.mp4",@"imagetovideo"]];
+    
+    NSURL *url = [NSURL fileURLWithPath:moviePath];
+
+    MPMoviePlayerController *mpcontrol = [[MPMoviePlayerController alloc] initWithContentURL:url];
+
+    [self.view addSubview:mpcontrol.view];
+
+    mpcontrol.view.frame = CGRectMake(0, 0, 320, 380);
+    mpcontrol.fullscreen = YES;
+
+    mpcontrol.scalingMode = MPMovieScalingModeFill;
+
+    [mpcontrol play];
 }
 
 //光线活体检测
@@ -277,24 +371,13 @@ typedef enum{
     self.cameraTrack.videoDelegate = self;
     self.taskType = QNAITaskType_IDCardDetect;
 
-    UIImagePickerController *picker = [[UIImagePickerController alloc]init];
-    picker.sourceType = UIImagePickerControllerSourceTypeSavedPhotosAlbum;
-    picker.delegate = self;
-    [self presentViewController:picker animated:YES completion:nil];
-    
-}
-
-- (void)startIDCardDetect {
-    
     QNAIIDCardDetectParams *params = [[QNAIIDCardDetectParams alloc]init];
-    //身份证识别的图片尽量少压缩，不然识别不出来
-    params.image = [QNImageToVideoTool base64StringByImage:self.IDCardImage scaleWidth:300];
     params.ref_side = @"F";
     params.enable_border_check = YES;
     
     [MBProgressHUD showStatus];
     
-    [QNAIIDCardDetect startDetectWithParams:params complete:^(QNAIIDCardResult * _Nonnull result) {
+    [[QNAIIDCardDetect shareManager] startDetectWithVideoTrack:self.cameraTrack params:params complete:^(QNAIIDCardResult * _Nonnull result) {
         
         [MBProgressHUD dismiss];
         
@@ -315,6 +398,7 @@ typedef enum{
         [MBProgressHUD dismiss];
         [self showResultAlertWithTitle:@"身份证识别" content:@"识别失败"];
     }];
+    
 }
 
 - (void)configureRTCEngine {
@@ -324,7 +408,7 @@ typedef enum{
     // QNRTCClient 初始化
     self.rtcClient = [QNRTC createRTCClient];
     self.rtcClient.delegate = self;
-    
+
     // 设置本地预览视图
     self.preview = [QNRTC getCameraPreviewView];
     self.preview.frame = CGRectMake(0, 0, kScreenWidth, kScreenHeight);
@@ -332,6 +416,7 @@ typedef enum{
     
     // 设置采集视频的帧率
     [QNRTC setCameraFrameRate:16];
+    [QNRTC setPreviewMirrorFrontFacing:NO];
     
     // 加入房间
     [self.rtcClient join:self.roomToken completeCallback:^(BOOL success, NSError *error) {
@@ -414,7 +499,7 @@ typedef enum{
 
 - (void)track:(QNTrack *)track didGetPixelBuffer:(CVPixelBufferRef)pixelBuffer {
     
-//    NSLog(@"trackId: %@ tag: %@ RTC房间视频帧",track.trackID,track.tag);
+    NSLog(@"trackId: %@ tag: %@ RTC房间视频帧",track.trackID,track.tag);
     
     UIImage *image = [QNUtil convertFrame:pixelBuffer];
     self.imageBase64Str = [QNImageToVideoTool base64StringByImage:image scaleWidth:200];

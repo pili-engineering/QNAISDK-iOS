@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 51;
+	objectVersion = 52;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -20,8 +20,13 @@
 		778D5AE22684391000B64134 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 778D5AE12684391000B64134 /* main.m */; };
 		778D5AEC2684391000B64134 /* QNAIDemoTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 778D5AEB2684391000B64134 /* QNAIDemoTests.m */; };
 		778D5AF72684391000B64134 /* QNAIDemoUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 778D5AF62684391000B64134 /* QNAIDemoUITests.m */; };
-		77CD959926BD194100431618 /* QNAISDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 77CD959526BD193A00431618 /* QNAISDK.framework */; };
-		77CD959A26BD194100431618 /* QNAISDK.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 77CD959526BD193A00431618 /* QNAISDK.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		77EE1C5027950E4000D69DAC /* HappyDNS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 77EE1C4827950E1600D69DAC /* HappyDNS.framework */; platformFilter = ios; };
+		77EE1C5127950E4000D69DAC /* HappyDNS.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 77EE1C4827950E1600D69DAC /* HappyDNS.framework */; platformFilter = ios; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		77EE1C62279519FC00D69DAC /* QNRTCKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 77EE1C5C279519D900D69DAC /* QNRTCKit.framework */; platformFilter = ios; };
+		77EE1C63279519FC00D69DAC /* QNRTCKit.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 77EE1C5C279519D900D69DAC /* QNRTCKit.framework */; platformFilter = ios; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		77EE1C6627951C3200D69DAC /* QNAISDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 77EE1C6527951C3200D69DAC /* QNAISDK.framework */; platformFilter = ios; };
+		77EE1C6727951C3200D69DAC /* QNAISDK.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 77EE1C6527951C3200D69DAC /* QNAISDK.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		77EE1C6927951C3B00D69DAC /* QNAISDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 77EE1C6827951C3B00D69DAC /* QNAISDK.framework */; platformFilter = ios; };
 		8DE885FD6C109A5853DEF4C7 /* Pods_QNAIDemo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4C2704C544F9742A64D0AA11 /* Pods_QNAIDemo.framework */; };
 /* End PBXBuildFile section */
 
@@ -49,7 +54,9 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
-				77CD959A26BD194100431618 /* QNAISDK.framework in Embed Frameworks */,
+				77EE1C5127950E4000D69DAC /* HappyDNS.framework in Embed Frameworks */,
+				77EE1C63279519FC00D69DAC /* QNRTCKit.framework in Embed Frameworks */,
+				77EE1C6727951C3200D69DAC /* QNAISDK.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -84,7 +91,10 @@
 		778D5AF22684391000B64134 /* QNAIDemoUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = QNAIDemoUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		778D5AF62684391000B64134 /* QNAIDemoUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = QNAIDemoUITests.m; sourceTree = "<group>"; };
 		778D5AF82684391000B64134 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		77CD959526BD193A00431618 /* QNAISDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = QNAISDK.framework; sourceTree = "<group>"; };
+		77EE1C4827950E1600D69DAC /* HappyDNS.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = HappyDNS.framework; sourceTree = "<group>"; };
+		77EE1C5C279519D900D69DAC /* QNRTCKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = QNRTCKit.framework; sourceTree = "<group>"; };
+		77EE1C6527951C3200D69DAC /* QNAISDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = QNAISDK.framework; sourceTree = "<group>"; };
+		77EE1C6827951C3B00D69DAC /* QNAISDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = QNAISDK.framework; sourceTree = "<group>"; };
 		78A9456DDDD202753C3C6B32 /* Pods-QNAIDemo-QNAIDemoUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-QNAIDemo-QNAIDemoUITests.debug.xcconfig"; path = "Target Support Files/Pods-QNAIDemo-QNAIDemoUITests/Pods-QNAIDemo-QNAIDemoUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		83BCA3F538D5964104F0F51E /* Pods-QNAIDemoTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-QNAIDemoTests.release.xcconfig"; path = "Target Support Files/Pods-QNAIDemoTests/Pods-QNAIDemoTests.release.xcconfig"; sourceTree = "<group>"; };
 		8EA7F6AF0C782EA0004AD81D /* Pods_QNAIDemoTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_QNAIDemoTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -96,7 +106,10 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				77CD959926BD194100431618 /* QNAISDK.framework in Frameworks */,
+				77EE1C6927951C3B00D69DAC /* QNAISDK.framework in Frameworks */,
+				77EE1C6627951C3200D69DAC /* QNAISDK.framework in Frameworks */,
+				77EE1C5027950E4000D69DAC /* HappyDNS.framework in Frameworks */,
+				77EE1C62279519FC00D69DAC /* QNRTCKit.framework in Frameworks */,
 				8DE885FD6C109A5853DEF4C7 /* Pods_QNAIDemo.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -136,7 +149,7 @@
 		778D5AC32684390D00B64134 = {
 			isa = PBXGroup;
 			children = (
-				77CD959526BD193A00431618 /* QNAISDK.framework */,
+				77EE1C6827951C3B00D69DAC /* QNAISDK.framework */,
 				778D5ACE2684390D00B64134 /* QNAIDemo */,
 				778D5AEA2684391000B64134 /* QNAIDemoTests */,
 				778D5AF52684391000B64134 /* QNAIDemoUITests */,
@@ -159,6 +172,8 @@
 		778D5ACE2684390D00B64134 /* QNAIDemo */ = {
 			isa = PBXGroup;
 			children = (
+				77EE1C4827950E1600D69DAC /* HappyDNS.framework */,
+				77EE1C5C279519D900D69DAC /* QNRTCKit.framework */,
 				778D5ACF2684390D00B64134 /* AppDelegate.h */,
 				778D5AD02684390D00B64134 /* AppDelegate.m */,
 				7772309B2696D2FC00235292 /* MBProgressHUD+QNShow.h */,
@@ -199,6 +214,7 @@
 		CA3AA41A906E03EAA8C73788 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				77EE1C6527951C3200D69DAC /* QNAISDK.framework */,
 				4C2704C544F9742A64D0AA11 /* Pods_QNAIDemo.framework */,
 				3F2564C52FCB7AD3791A8584 /* Pods_QNAIDemo_QNAIDemoUITests.framework */,
 				8EA7F6AF0C782EA0004AD81D /* Pods_QNAIDemoTests.framework */,
@@ -622,6 +638,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CLANG_ALLOW_NON_MODULAR_INCLUDES_IN_FRAMEWORK_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = W2TP34G2MM;
 				ENABLE_BITCODE = NO;
@@ -643,6 +660,9 @@
 					"\"${PODS_CONFIGURATION_BUILD_DIR}/SocketRocket/SocketRocket.framework/Headers\"",
 					"\"${PODS_CONFIGURATION_BUILD_DIR}/YYCategories/YYCategories.framework/Headers\"",
 					"$(SRCROOT)/../../../../../Library/Developer/Xcode/DerivedData/QNAIDemo-goxbuntluvaembhfhdzmkwqzplha/Build/Products/Debug-iphoneos/QNAISDK.framework",
+					"\"$(SRCROOT)/../QNAISDK/QNAISDK/QNRTCKit.framework/Headers\"",
+					"\"$(SRCROOT)/../QNAISDK/QNAISDK/HappyDNS.framework\"",
+					"$(PROJECT_DIR)/build/include",
 				);
 				INFOPLIST_FILE = QNAIDemo/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
@@ -662,6 +682,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CLANG_ALLOW_NON_MODULAR_INCLUDES_IN_FRAMEWORK_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = W2TP34G2MM;
 				ENABLE_BITCODE = NO;
@@ -683,6 +704,9 @@
 					"\"${PODS_CONFIGURATION_BUILD_DIR}/SocketRocket/SocketRocket.framework/Headers\"",
 					"\"${PODS_CONFIGURATION_BUILD_DIR}/YYCategories/YYCategories.framework/Headers\"",
 					"$(SRCROOT)/../../../../../Library/Developer/Xcode/DerivedData/QNAIDemo-goxbuntluvaembhfhdzmkwqzplha/Build/Products/Debug-iphoneos/QNAISDK.framework",
+					"\"$(SRCROOT)/../QNAISDK/QNAISDK/QNRTCKit.framework/Headers\"",
+					"\"$(SRCROOT)/../QNAISDK/QNAISDK/HappyDNS.framework\"",
+					"$(PROJECT_DIR)/build/include",
 				);
 				INFOPLIST_FILE = QNAIDemo/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;

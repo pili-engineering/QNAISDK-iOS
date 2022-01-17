@@ -23,6 +23,11 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic,assign) NSInteger needvad;
 //采样率 默认为48000
 @property (nonatomic,assign) NSInteger voice_sample;
+/**
+     * 提供热词，格式为: hot_words=热词1,因子1;热词2,因子2，每个热词由热词本身和方法因子以英文逗号隔开，不同热词通过;隔开，最多100个热词，每个热词40字节以内。由于潜在的http服务对url大小的限制，以实际支持的热词个数为准
+     * 因子范围[-10,10], 正数代表权重权重越高，权重越高越容易识别成这个词，建议设置1 ，负数代表不想识别
+     */
+@property (nonatomic,copy) NSString *hot_words;
 
 @end
 

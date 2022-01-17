@@ -10,8 +10,8 @@ target 'QNAIDemo' do
   pod 'YYCategories'
 	pod 'AFNetworking'
   pod 'MBProgressHUD'
-  pod 'SocketRocket'
-  pod 'QNRTCKit'
+  pod 'SocketRocket','0.6.0'
+#  pod 'QNRTCKit','3.1.2'
   pod 'IQKeyboardManager'
   pod 'Masonry'
 

@@ -3,7 +3,5 @@ ${BUILT_PRODUCTS_DIR}/AFNetworking/AFNetworking.framework
 ${BUILT_PRODUCTS_DIR}/IQKeyboardManager/IQKeyboardManager.framework
 ${BUILT_PRODUCTS_DIR}/MBProgressHUD/MBProgressHUD.framework
 ${BUILT_PRODUCTS_DIR}/Masonry/Masonry.framework
-${PODS_ROOT}/QNRTCKit/Pod/iphoneos/HappyDNS.framework
-${PODS_ROOT}/QNRTCKit/Pod/iphoneos/QNRTCKit.framework
 ${BUILT_PRODUCTS_DIR}/SocketRocket/SocketRocket.framework
 ${BUILT_PRODUCTS_DIR}/YYCategories/YYCategories.framework

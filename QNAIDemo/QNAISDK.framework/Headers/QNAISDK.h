@@ -27,6 +27,13 @@
 #import "QNAIIDCardDetect.h"
 #import "QNAISDKManager.h"
 #import "QNImageToVideoTool.h"
+#import "QNAuthoritativeFaceComparer.h"
+#import "QNAuthoritativeFaceParams.h"
+#import "QNAuthoritativeFaceResult.h"
+#import "QNAuthorityActionFaceComparer.h"
+#import "QNOCRDetect.h"
+#import "OCRDetectResult.h"
+
 
 //! Project version number for QNAISDK.
 FOUNDATION_EXPORT double QNAISDKVersionNumber;
