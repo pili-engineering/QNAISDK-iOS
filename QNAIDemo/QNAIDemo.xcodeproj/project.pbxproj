@@ -24,6 +24,7 @@
 		77EE1C5127950E4000D69DAC /* HappyDNS.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 77EE1C4827950E1600D69DAC /* HappyDNS.framework */; platformFilter = ios; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		77EE1C62279519FC00D69DAC /* QNRTCKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 77EE1C5C279519D900D69DAC /* QNRTCKit.framework */; platformFilter = ios; };
 		77EE1C63279519FC00D69DAC /* QNRTCKit.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 77EE1C5C279519D900D69DAC /* QNRTCKit.framework */; platformFilter = ios; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		77EE1C6627951C3200D69DAC /* QNAISDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 77EE1C6527951C3200D69DAC /* QNAISDK.framework */; platformFilter = ios; };
 		77EE1C6727951C3200D69DAC /* QNAISDK.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 77EE1C6527951C3200D69DAC /* QNAISDK.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		77EE1C6927951C3B00D69DAC /* QNAISDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 77EE1C6827951C3B00D69DAC /* QNAISDK.framework */; platformFilter = ios; };
 		8DE885FD6C109A5853DEF4C7 /* Pods_QNAIDemo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4C2704C544F9742A64D0AA11 /* Pods_QNAIDemo.framework */; };
@@ -106,6 +107,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				77EE1C6927951C3B00D69DAC /* QNAISDK.framework in Frameworks */,
+				77EE1C6627951C3200D69DAC /* QNAISDK.framework in Frameworks */,
 				77EE1C5027950E4000D69DAC /* HappyDNS.framework in Frameworks */,
 				77EE1C62279519FC00D69DAC /* QNRTCKit.framework in Frameworks */,
 				8DE885FD6C109A5853DEF4C7 /* Pods_QNAIDemo.framework in Frameworks */,
@@ -288,7 +290,7 @@
 		778D5AC42684390D00B64134 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastUpgradeCheck = 1300;
+				LastUpgradeCheck = 1240;
 				TargetAttributes = {
 					778D5ACB2684390D00B64134 = {
 						CreatedOnToolsVersion = 12.4;
@@ -638,7 +640,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CLANG_ALLOW_NON_MODULAR_INCLUDES_IN_FRAMEWORK_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = GDFHW66V92;
+				DEVELOPMENT_TEAM = W2TP34G2MM;
 				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -663,7 +665,7 @@
 					"$(PROJECT_DIR)/build/include",
 				);
 				INFOPLIST_FILE = QNAIDemo/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -682,7 +684,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CLANG_ALLOW_NON_MODULAR_INCLUDES_IN_FRAMEWORK_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = GDFHW66V92;
+				DEVELOPMENT_TEAM = W2TP34G2MM;
 				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -707,7 +709,7 @@
 					"$(PROJECT_DIR)/build/include",
 				);
 				INFOPLIST_FILE = QNAIDemo/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",

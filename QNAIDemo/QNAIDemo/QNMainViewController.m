@@ -271,8 +271,7 @@ typedef enum{
         } else {
             [self showResultAlertWithTitle:@"OCR识别" content:result.data.firstObject.text];
         }
-        self.cameraTrack.videoDelegate = self;
-        
+            self.cameraTrack.videoDelegate = self;
         } failure:^(NSError * _Nonnull error) {
             self.cameraTrack.videoDelegate = self;
         }];
@@ -407,11 +406,12 @@ typedef enum{
         }
         
         [self showResultAlertWithTitle:@"身份证识别" content:resultStr];
+        
         self.cameraTrack.videoDelegate = self;
     } failure:^(NSError * _Nonnull error) {
+        self.cameraTrack.videoDelegate = self;
         [MBProgressHUD dismiss];
         [self showResultAlertWithTitle:@"身份证识别" content:@"识别失败"];
-        self.cameraTrack.videoDelegate = self;
     }];
     
 }
@@ -431,7 +431,7 @@ typedef enum{
     
     // 设置采集视频的帧率
     [QNRTC setCameraFrameRate:16];
-    [QNRTC setPreviewMirrorFrontFacing:NO];
+//    [QNRTC setPreviewMirrorFrontFacing:NO];
     
     // 加入房间
     [self.rtcClient join:self.roomToken completeCallback:^(BOOL success, NSError *error) {
