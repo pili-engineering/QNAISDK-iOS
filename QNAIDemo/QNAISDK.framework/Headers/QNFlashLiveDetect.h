@@ -12,16 +12,16 @@
 
 NS_ASSUME_NONNULL_BEGIN
 //光线活体检测
-@interface QNFlashLiveDetect : NSObject
+@interface QNFlashLiveDetect : NSObject 
 
-+ (instancetype)shareManager;
++ (instancetype)shareManager DEPRECATED_ATTRIBUTE;
 
 //开始光线活体检测
-- (void)startDetectWithTrack:(QNTrack *)track;
+- (void)startDetectWithTrack:(QNTrack *)track DEPRECATED_ATTRIBUTE;
 
-- (void)detectComplete:(void (^)(QNFlashLiveDetectResult *result))complete failure:(nonnull void (^)(NSError * _Nonnull error))failure;
+- (void)detectComplete:(void (^)(QNFlashLiveDetectResult *result))complete failure:(nonnull void (^)(NSError * _Nonnull error))failure DEPRECATED_ATTRIBUTE;
 
-- (void)cancel;
+- (void)cancel DEPRECATED_ATTRIBUTE;
 
 @end
 

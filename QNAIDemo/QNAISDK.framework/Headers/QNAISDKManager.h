@@ -9,13 +9,18 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
+typedef NSString * _Nonnull (^QNUrlSignBlock)(NSString  * _Nonnull url);
+
+
 @interface QNAISDKManager : NSObject
 
 + (instancetype)shareManager;
 
-- (void)registerWithAIToken:(NSString *)aiToken;
+- (void)setAIToken:(NSString *)aiToken;
 
--(void)debugToken;
+- (void)setSignBlock:(QNUrlSignBlock) block;
+
+- (NSString *)signUrl:(NSString *)url;
 
 @property (nonatomic, copy) NSString *aiToken;
 

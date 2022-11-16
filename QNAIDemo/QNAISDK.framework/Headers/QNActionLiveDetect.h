@@ -6,14 +6,9 @@
 //
 
 #import <Foundation/Foundation.h>
-#import "QNActionLiveDetectResult.h"
+#import "QNActionLiveDetectResponse.h"
 
-typedef enum{
-    QNFaceActionTypeBlink, //眨眼
-    QNFaceActionTypeMouth,//张嘴
-    QNFaceActionTypeNode,//点头
-    QNFaceActionTypeShake,//摇头
-}QNFaceActionType;
+
 
 NS_ASSUME_NONNULL_BEGIN
 
@@ -23,11 +18,22 @@ NS_ASSUME_NONNULL_BEGIN
 @interface QNActionLiveDetect : NSObject
 
 + (instancetype)shareManager;
-//开始动作活体检测
-- (void)startDetectWithTrack:(QNTrack *)track actionTypes:(NSArray*)actionTypes;
 
-- (void)detectComplete:(void (^)(QNActionLiveDetectResult *result))complete failure:(nonnull void (^)(NSError * _Nonnull error))failure;
+// 获取活体检测校验码
+- (void)getFaceActliveSession:(QNActiveSessionRequest *)request
+                     complete:(void (^)(QNActiveSessionResponse *response))complete
+                      failure:(void (^)(NSError * _Nonnull))failure;
 
+// 开始活体检测流录制，建议录制时间 1~10秒
+- (void)startDetectWithTrack:(QNTrack *)track;
+
+
+// 进行人脸检测
+- (void)commitWithParam:(QNActionLiveDetectParam *)param
+               complete:(void (^)(QNActionLiveDetectResponse *response))complete
+                failure:(nonnull void (^)(NSError * _Nonnull error))failure;
+
+// 取消检测
 - (void)cancel;
 
 @end

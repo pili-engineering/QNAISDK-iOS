@@ -7,7 +7,7 @@
 
 #import <Foundation/Foundation.h>
 #import "QNFaceCompareParams.h"
-#import "QNFaceCompareResult.h"
+#import "QNFaceCompareResponse.h"
 
 @class QNTrack;
 NS_ASSUME_NONNULL_BEGIN
@@ -15,7 +15,10 @@ NS_ASSUME_NONNULL_BEGIN
 //人脸对比
 @interface QNFaceCompare : NSObject
 
-+ (void)startCompareWithParams:(QNFaceCompareParams *)params complete:(void (^)(QNFaceCompareResult *result))complete failure:(nonnull void (^)(NSError * _Nonnull error))failure;
++ (void)startCompare:(QNFaceCompareParams *)source
+              target:(QNFaceCompareParams *)target
+            complete:(void (^)(QNFaceCompareResponse * _Nonnull))complete
+             failure:(void (^)(NSError * _Nonnull))failure;
 
 @end
 

@@ -11,7 +11,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface QNAuthoritativeFaceResult : NSObject
 
-@property (nonatomic, copy) NSString *similarity;
+@property (nonatomic, assign) double similarity;
 
 @property (nonatomic, assign) NSInteger errorcode;
 
