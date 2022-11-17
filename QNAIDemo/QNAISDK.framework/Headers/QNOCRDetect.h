@@ -13,9 +13,9 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface QNOCRDetect : NSObject
 
-+ (instancetype)shareManager;
++ (instancetype)shareManager DEPRECATED_ATTRIBUTE;
 
-- (void)startDetectWithVideoTrack:(QNTrack *)track complete:(void (^)(OCRDetectResult *result))complete failure:(nonnull void (^)(NSError * _Nonnull error))failure;
+- (void)startDetectWithVideoTrack:(QNTrack *)track complete:(void (^)(OCRDetectResult *result))complete failure:(nonnull void (^)(NSError * _Nonnull error))failure DEPRECATED_ATTRIBUTE;
 
 @end
 

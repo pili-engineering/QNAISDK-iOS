@@ -17,10 +17,8 @@
 
 typedef enum{
     QNAITaskType_Action, //动作活体
-    QNAITaskType_Flash,//光线活体
     QNAITaskType_AuthoritativeFaceCompare,//权威人脸对比
     QNAITaskType_AuthorityActionFaceComparer,//权威动作活体
-    QNAITaskType_OCRDetect,//ocr识别
     QNAITaskType_FaceCompare,//人脸对比
     QNAITaskType_FaceDetect,//人脸识别
     QNAITaskType_IDCardDetect,//身份证识别
@@ -38,7 +36,7 @@ typedef enum{
 @property (nonatomic, strong) UITextView *textView;
 @property (nonatomic, strong) UIButton *endSpeakButton;
 //要播放音频 player不能设置为局部变量
-@property (nonatomic, strong) AVAudioPlayer *audioPlayer;
+@property (nonatomic, strong) AVPlayer *avPlayer;
 
 @property (nonatomic, strong) QNTrack *audioTrack;
 @property (nonatomic, strong) QNTrack *cameraTrack;
@@ -46,7 +44,9 @@ typedef enum{
 @property (nonatomic, strong) UIImage *compareImage;//用来人脸对比的图片
 
 @property (nonatomic, copy) NSString *imageBase64Str;
+
 @property (nonatomic, assign) QNAITaskType taskType;
+@property (nonatomic, copy) NSString *actionMessage;
 
 @property (nonatomic,strong) MPMoviePlayerController *mpcontrol;
 
@@ -59,21 +59,32 @@ typedef enum{
     [super viewDidLoad];
     [self configureRTCEngine];
     [self setupButtons];
-    
 }
 
 - (void)setupButtons {
+    NSArray *buttons = @[
+        @{@"title":@"语音转文字", @"selector":@"audioToText"},
+        @{@"title":@"文字转语音", @"selector":@"textToSpeak"},
+        
+        @{@"title":@"人脸识别", @"selector":@"faceDetect"},
+        @{@"title":@"人脸对比", @"selector":@"faceCompare"},
+        
+        @{@"title":@"动作活体检测", @"selector":@"actionLiveDetect"},
+       
+        @{@"title":@"权威人脸对比", @"selector":@"authoritativeFaceCompare"},
+        @{@"title":@"权威动作活体检测", @"selector":@"authorityActionFaceComparer"},
+        
+        @{@"title":@"身份证识别", @"selector":@"IDCardDetect"},
+    ];
     
-    NSArray *buttonTitles = @[ @"语音转文字",@"权威人脸对比",@"权威动作活体检测",@     "OCR识别",@"人脸对比",@"人脸识别",@"动作活体检测",@"光线活体检测",@"身份证识别",@"文字转语音"];
-    NSArray *selectors = @[@"audioToText",@"authoritativeFaceCompare",@"authorityActionFaceComparer",@"OCRDetect",@"faceCompare",@"faceDetect",@"actionLiveDetect",@"flashLiveDetect",@"IDCardDetect",@"textToSpeak"];
     
-    for (int i = 0; i < buttonTitles.count; i ++) {
+    for (int i = 0; i < buttons.count; i ++) {
         UIButton *button = [[UIButton alloc] init];
-        [button setTitle:buttonTitles[i] forState:(UIControlStateNormal)];
+        [button setTitle:buttons[i][@"title"] forState:(UIControlStateNormal)];
         button.titleLabel.font = [UIFont systemFontOfSize:14];
         [button setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
         button.backgroundColor = [UIColor blackColor];
-        [button addTarget:self action:NSSelectorFromString(selectors[i]) forControlEvents:(UIControlEventTouchUpInside)];
+        [button addTarget:self action:NSSelectorFromString(buttons[i][@"selector"]) forControlEvents:(UIControlEventTouchUpInside)];
         [self.view addSubview:button];
 
         [button mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -96,25 +107,22 @@ typedef enum{
     UIAlertAction *otherAction = [UIAlertAction actionWithTitle:@"开始" style:UIAlertActionStyleDefault handler:^(UIAlertAction *action) {
                         
         QNTextToSpeakParams *params = [[QNTextToSpeakParams alloc]init];
-        params.text = alertController.textFields.firstObject.text;
-        params.speaker = @"female3";
-        params.audio_encoding = @"mp3";
-        params.sample_rate = 16000;
-        params.volume = 80;
-        params.speed = 0;
+        params.content = alertController.textFields.firstObject.text;
+
         
         [QNTextToSpeakDetect startTextToSpeakWithParams:params complete:^(QNTextToSpeakResult * _Nonnull result) {
-                
+            if (result.errorCode != 0) {
+                NSLog(@"reqeust error %ld, msg %@", result.errorCode, result.errorMsg);
+                return;
+            }
             [[AVAudioSession sharedInstance] setCategory: AVAudioSessionCategoryPlayback error: nil];
             [[AVAudioSession sharedInstance] setActive: YES error: nil];
-            self.audioPlayer = [[AVAudioPlayer alloc] initWithData:result.audioData fileTypeHint:AVFileTypeWAVE error:nil];
-            self.audioPlayer.volume = 1;
-            [self.audioPlayer play];
-                  
-            self.audioTrack.audioDelegate = self;
+            
+            NSURL *url = [NSURL URLWithString:result.result.audioUrl];
+            self.avPlayer = [[AVPlayer alloc] initWithURL:url];
+            [self.avPlayer play];
         } failure:^(NSError * _Nonnull error) {
-                
-            self.audioTrack.audioDelegate = self;
+            NSLog(@"request error %@", error);
         }];
         
     }];
@@ -131,17 +139,17 @@ typedef enum{
     self.taskType = QNAITaskType_SpeakToText;
 
     QNSpeakToTextParams *params = [[QNSpeakToTextParams alloc]init];
-    params.force_final = YES;
-    params.hot_words = @"清除,1;你好,1";
+    params.model_type = 1;
+    params.key_words = @"你好";
+    
     self.endSpeakButton.hidden = NO;
     self.textView.hidden = NO;
     self.textView.text = @"";
+    
     [[QNSpeakToTextDetect shareManager] startDetectWithTrack:self.audioTrack params:params complete:^(QNSpeakToTextResult * _Nonnull result) {
-        
-        if (result.transcript.length > 0) {
-            self.textView.text = result.transcript;
+        if (result.bestTranscription && result.bestTranscription.transcribedText && result.bestTranscription.transcribedText.length > 0) {
+            self.textView.text = result.bestTranscription.transcribedText;
         }
-        
     } failure:^(NSError *error) {
         
     }];
@@ -164,15 +172,29 @@ typedef enum{
 }
 
 - (void)startFaceCompare {
-    QNFaceCompareParams *params = [[QNFaceCompareParams alloc]init];
-    params.data_uri_a = self.imageBase64Str;
-    params.data_uri_b = [QNImageToVideoTool base64StringByImage:self.compareImage scaleWidth:200];
+    QNFaceCompareParams *source = [[QNFaceCompareParams alloc]init];
+    source.image = self.imageBase64Str;
+    source.imageType = @"BASE64";
+    
+    QNFaceCompareParams *target = [[QNFaceCompareParams alloc]init];
+    target.imageType = @"BASE64";
+    target.image = [QNImageToVideoTool base64StringByImage:self.compareImage scaleWidth:200];
+    
     [MBProgressHUD showStatus];
-    [QNFaceCompare startCompareWithParams:params complete:^(QNFaceCompareResult * _Nonnull result) {
+    [QNFaceCompare startCompare:source target:target complete:^(QNFaceCompareResponse * _Nonnull response) {
         [MBProgressHUD dismiss];
+        
+        if (response.errorCode != 0) {
+            NSString *msg = [NSString stringWithFormat:@"错误码 %ld，%@", response.errorCode, response.errorMsg];
+            [self showResultAlertWithTitle:@"人脸对比" content:msg];
+            return;
+        }
+        
+        QNFaceCompareResult *result = response.result;
+        
         NSString *resultStr = @"相似度为0";
-        if (result.similarity) {
-            resultStr = [NSString stringWithFormat:@"相似度：%f",result.similarity];
+        if (result.score) {
+            resultStr = [NSString stringWithFormat:@"相似度：%f",result.score];
         }
         [self showResultAlertWithTitle:@"人脸对比" content:resultStr];
     } failure:^(NSError * _Nonnull error) {
@@ -195,11 +217,8 @@ typedef enum{
 
 //权威人脸对比
 -(void)authoritativeFaceCompare {
-    
     __weak typeof(self)weakSelf = self;
-    
     [self showAlertInputMessageComplete:^(NSString *name, NSString *IDNum) {
-           
         weakSelf.cameraTrack.videoDelegate = weakSelf;
         weakSelf.taskType = QNAITaskType_AuthoritativeFaceCompare;
         
@@ -226,57 +245,88 @@ typedef enum{
 
 //权威动作活体检测
 - (void)authorityActionFaceComparer {
-    
     __weak typeof(self)weakSelf = self;
-    
     [self showAlertInputMessageComplete:^(NSString *name, NSString *IDNum) {
-         
-        weakSelf.cameraTrack.videoDelegate = weakSelf;
         weakSelf.taskType = QNAITaskType_AuthorityActionFaceComparer;
-        
+
         QNAuthoritativeFaceParams *params = [QNAuthoritativeFaceParams new];
         params.idcard = IDNum;
         params.realname = name;
+
+        [weakSelf authorityActionFaceComparerWithParam:params];
+    }];
+}
+
+- (void) authorityActionFaceComparerWithParam:(QNAuthoritativeFaceParams *)authParam {
+    QNActiveSessionRequest *sessionRequest = [[QNActiveSessionRequest alloc] init];
+    [[QNAuthorityActionFaceComparer shareManager] getFaceActliveSession:sessionRequest complete:^(QNActiveSessionResponse * _Nonnull response) {
+        if (response.errorCode != 0 || !response.result) {
+            NSLog(@"getFaceActliveSession error %ld, %@", response.errorCode, response.errorMsg);
+            return;
+        }
+        self.actionMessage = [self getActionMessage:response];
         
-        [[QNAuthorityActionFaceComparer shareManager] startDetectWithTrack:weakSelf.cameraTrack actionTypes:@[@(QNAuthorityActionFaceShake)] params:params];
+        [[QNAuthorityActionFaceComparer shareManager] startDetectWithTrack:self.cameraTrack];
         
-        [weakSelf showCollectAlertWithComplete:^ {
-                
+        [self showCollectAlertWithComplete:^ {
             [MBProgressHUD showStatus];
             
-            [[QNAuthorityActionFaceComparer shareManager] detectComplete:^(QNActionLiveDetectResult * _Nonnull result, QNAuthoritativeFaceResult * _Nonnull authoritativeResult) {
-                        
+            QNActionLiveDetectParam *detectParam = [[QNActionLiveDetectParam alloc] init];
+            detectParam.sessionID = response.result.sessionID;
+            detectParam.faceField = @"spoofing,quality";
+            
+            [[QNAuthorityActionFaceComparer shareManager] commitWithDetectParam:detectParam authParam:authParam complete:^(QNActionLiveDetectResponse * _Nonnull detectResponse, QNAuthoritativeFaceResult * _Nonnull authResponse) {
                 [MBProgressHUD dismiss];
-                NSString *resultStr = [NSString  stringWithFormat:@"动作活体状态：%ld\n权威人脸检测相似度%@",result.live_status,authoritativeResult.similarity];
-                [weakSelf showResultAlertWithTitle:@"动作活体检测(摇头)" content:resultStr];
-                weakSelf.cameraTrack.videoDelegate = weakSelf;
+                self.cameraTrack.videoDelegate = self;
+                
+                // 实际处理需要检查 errorCode
+                NSString *detectResultStr = [NSString stringWithFormat:@"动作活体分数：%f, 结果：%@",detectResponse.result.score, detectResponse.result.actionVerify];
+                NSString *authResultStr = [NSString stringWithFormat:@"人脸识别相似度：%f", authResponse.similarity];
+                NSString *msg = [NSString stringWithFormat:@"%@\n%@", detectResultStr, authResultStr];
+                
+                [self showResultAlertWithTitle:@"权威动作活体检测" content:msg];
             } failure:^(NSError * _Nonnull error) {
                 [MBProgressHUD dismiss];
-                weakSelf.cameraTrack.videoDelegate = weakSelf;
+                self.cameraTrack.videoDelegate = self;
+                
+                NSString *msg = [NSString stringWithFormat:@"检测失败：%@", error];
+                [self showResultAlertWithTitle:@"权威动作活体检测" content:msg];
             }];
         }];
         
+    } failure:^(NSError * _Nonnull error) {
+        NSString *msg = [NSString stringWithFormat:@"获取检验码失败：%@", error];
+        [self showResultAlertWithTitle:@"权威动作活体检测" content:msg];
     }];
-   
 }
 
-//ocr识别
-- (void)OCRDetect {
+- (NSString *)getActionMessage:(QNActiveSessionResponse *)response {
+    if (!response || !response.result) {
+        return @"";
+    }
     
-    self.cameraTrack.videoDelegate = self;
-    self.taskType = QNAITaskType_OCRDetect;
-    [[QNOCRDetect shareManager] startDetectWithVideoTrack:self.cameraTrack complete:^(OCRDetectResult * _Nonnull result) {
-        if (result.data.count == 0) {
-            [self showResultAlertWithTitle:@"OCR识别" content:@"识别失败"];
-        } else {
-            [self showResultAlertWithTitle:@"OCR识别" content:result.data.firstObject.text];
+    NSString *actionMessage = @"";
+    NSArray<NSNumber *> *actions = [response.result actions];
+    for (int i = 0; i < [actions count] ; i++) {
+        if (actions[i].integerValue == QNFaceActionTypeBlink) {
+            actionMessage = [actionMessage stringByAppendingString: @"请眨眼，"];
         }
-            self.cameraTrack.videoDelegate = self;
-        } failure:^(NSError * _Nonnull error) {
-            self.cameraTrack.videoDelegate = self;
-        }];
+        
+        if (actions[i].integerValue == QNFaceActionTypeRaise) {
+            actionMessage = [actionMessage stringByAppendingString: @"请抬头，"];
+        }
+        
+        if (actions[i].integerValue == QNFaceActionTypeLower) {
+            actionMessage = [actionMessage stringByAppendingString: @"请低头，"];
+        }
+        
+        if (actions[i].integerValue == QNFaceActionTypeShake) {
+            actionMessage = [actionMessage stringByAppendingString: @"请摇头，"];
+        }
+    }
+    
+    return actionMessage;
 }
-
 
 //人脸识别
 - (void)faceDetect {
@@ -285,18 +335,22 @@ typedef enum{
     self.taskType = QNAITaskType_FaceDetect;
     
     QNFaceDetectParams *params = [[QNFaceDetectParams alloc]init];
-    params.rotate = YES;
-    params.image_b64 = self.imageBase64Str;
+    params.imageType = @"BASE64";
+    params.image = self.imageBase64Str;
     [MBProgressHUD showStatus];
-    [QNFaceDetect startDetectWithParams:params complete:^(QNFaceDetectResult * _Nonnull result) {
-        
-        
+    [QNFaceDetect startDetectWithParams:params complete:^(QNFaceDetectResponse * _Nonnull response) {
         [MBProgressHUD dismiss];
-        NSString *resultStr = @"未识别到人脸";
+        
+        if (response.errorCode != 0) {
+            [self showResultAlertWithTitle:@"人脸识别" content:@"识别失败"];
+            return;
+        }
+        
+        QNFaceDetectResult *result = response.result;
 
-        if (result.face.count > 0) {
-            QNFaceModel *firstModel = result.face.firstObject;
-            resultStr = [NSString stringWithFormat:@"人脸数量：%ld\n性别：%@\n年龄：%ld\n闭眼概率：%f\n人脸区域大小：%ld\n人脸分数：%f",result.num_face,[firstModel.gender  isEqualToString:@"F"] ? @"女" : @"男",firstModel.age,firstModel.eye,firstModel.area,firstModel.score];
+        NSString *resultStr = @"未识别到人脸";
+        if (result.faceNum > 0) {
+            resultStr = [NSString stringWithFormat:@"识别到人脸数量：%ld", result.faceNum];
         }
 
         [self showResultAlertWithTitle:@"人脸识别" content:resultStr];
@@ -311,25 +365,42 @@ typedef enum{
 - (void)actionLiveDetect {
         
     self.taskType = QNAITaskType_Action;
-
-    [[QNActionLiveDetect shareManager] startDetectWithTrack:self.cameraTrack actionTypes:@[@(QNFaceActionTypeShake)]];
     
-    [self showCollectAlertWithComplete:^ {
-            
-        [MBProgressHUD showStatus];
+    QNActiveSessionRequest *sessionRequest = [[QNActiveSessionRequest alloc] init];
+    
+    [[QNActionLiveDetect shareManager] getFaceActliveSession:sessionRequest complete:^(QNActiveSessionResponse * _Nonnull response) {
+        if (response.errorCode != 0 || !response.result) {
+            NSLog(@"getFaceActliveSession error %ld, %@", response.errorCode, response.errorMsg);
+            return;
+        }
+        self.actionMessage = [self getActionMessage:response];
         
-        [[QNActionLiveDetect shareManager] detectComplete:^(QNActionLiveDetectResult * _Nonnull result) {
-                    
-            [MBProgressHUD dismiss];
-            NSString *resultStr = [NSString stringWithFormat:@"动作活体状态：%ld",result.live_status];
-            [self showResultAlertWithTitle:@"动作活体检测(摇头)" content:resultStr];
-            self.cameraTrack.videoDelegate = self;
-//            [self play];
-        } failure:^(NSError * _Nonnull error) {
-            [MBProgressHUD dismiss];
-            self.cameraTrack.videoDelegate = self;
+        [[QNActionLiveDetect shareManager] startDetectWithTrack:self.cameraTrack];
+        
+        [self showCollectAlertWithComplete:^ {
+            [MBProgressHUD showStatus];
+            
+            QNActionLiveDetectParam *param = [[QNActionLiveDetectParam alloc] init];
+            param.sessionID = response.result.sessionID;
+            param.faceField = @"spoofing,quality";
+            
+            [[QNActionLiveDetect shareManager] commitWithParam:param complete:^(QNActionLiveDetectResponse * _Nonnull response) {
+                [MBProgressHUD dismiss];
+                self.cameraTrack.videoDelegate = self;
+                
+                NSString *resultStr = [NSString stringWithFormat:@"动作活体分数：%f, 结果：%@",response.result.score, response.result.actionVerify];
+                [self showResultAlertWithTitle:@"动作活体检测" content:resultStr];
+                
+            } failure:^(NSError * _Nonnull error) {
+                [MBProgressHUD dismiss];
+                self.cameraTrack.videoDelegate = self;
+            }];
         }];
+        
+    } failure:^(NSError * _Nonnull error) {
+        
     }];
+
     
     
 }
@@ -351,31 +422,6 @@ typedef enum{
     mpcontrol.scalingMode = MPMovieScalingModeFill;
 
     [mpcontrol play];
-}
-
-//光线活体检测
-- (void)flashLiveDetect {
-        
-    self.taskType = QNAITaskType_Flash;
-
-    [[QNFlashLiveDetect shareManager] startDetectWithTrack:self.cameraTrack];
-        
-    [self showCollectAlertWithComplete:^ {
-        [MBProgressHUD showStatus];
-        [[QNFlashLiveDetect shareManager] detectComplete:^(QNFlashLiveDetectResult * _Nonnull result) {
-                    
-            [MBProgressHUD dismiss];
-            
-            NSString *resultStr = [NSString stringWithFormat:@"视频中检测到的人脸帧数：%ld\n通过数：%ld\n活体分数：%f",result.face_num,result.pass_num,result.score];
-            [self showResultAlertWithTitle:@"光线活体检测" content:resultStr];
-            self.cameraTrack.videoDelegate = self;
-        } failure:^(NSError * _Nonnull error) {
-            [MBProgressHUD dismiss];
-            self.cameraTrack.videoDelegate = self;
-        }];
-
-    }];
-        
 }
 
 //身份证识别
@@ -407,9 +453,7 @@ typedef enum{
         
         [self showResultAlertWithTitle:@"身份证识别" content:resultStr];
         
-        self.cameraTrack.videoDelegate = self;
     } failure:^(NSError * _Nonnull error) {
-        self.cameraTrack.videoDelegate = self;
         [MBProgressHUD dismiss];
         [self showResultAlertWithTitle:@"身份证识别" content:@"识别失败"];
     }];
@@ -431,7 +475,7 @@ typedef enum{
     
     // 设置采集视频的帧率
     [QNRTC setCameraFrameRate:16];
-//    [QNRTC setPreviewMirrorFrontFacing:NO];
+    [QNRTC setPreviewMirrorFrontFacing:NO];
     
     // 加入房间
     [self.rtcClient join:self.roomToken completeCallback:^(BOOL success, NSError *error) {
@@ -565,7 +609,7 @@ typedef enum{
 
 - (void)showCollectAlertWithComplete:(void (^)(void))complete {
     
-    NSString *message =  self.taskType == QNAITaskType_Action ? @"请摇摇头" : nil;
+    NSString *message = (self.taskType == QNAITaskType_Action || self.taskType == QNAITaskType_AuthorityActionFaceComparer)? self.actionMessage : nil;
 
     UIAlertController *alertVc = [UIAlertController alertControllerWithTitle:@"采集中" message:message preferredStyle:UIAlertControllerStyleAlert];
     UIAlertAction *cancelAction = [UIAlertAction actionWithTitle:@"开始检测" style:UIAlertActionStyleDefault handler:^(UIAlertAction *action) {
@@ -610,4 +654,3 @@ typedef enum{
     self.audioTrack.audioDelegate = self;
 }
 @end
-

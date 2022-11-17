@@ -9,49 +9,60 @@
 #import <UIKit/UIKit.h>
 NS_ASSUME_NONNULL_BEGIN
 
-@interface QNWordsModel : NSObject
-//词语本身，包括标点符号
-@property (nonatomic,copy) NSString *word;
-//该词语相对当前分段的起始时间, 毫秒
-@property (nonatomic,assign) CGFloat seg_start;
-//该词语相对当前分段的终止时间, 毫秒
-@property (nonatomic,assign) CGFloat seg_end;
-//该词语相对整个数据流的起始时间, 毫秒
-@property (nonatomic,assign) CGFloat voice_start;
-//该词语相对整个数据流的终止时间, 毫秒
-@property (nonatomic,assign) CGFloat voice_end;
+
+@interface QNkeyWordsType : NSObject
+
+//关键词开始时间, 单位毫秒
+@property (nonatomic, assign) NSInteger startTimestamp;
+
+//关键词结束时间, 单位毫秒
+@property (nonatomic, assign) NSInteger endTimestamp;
+
+//命中的关键词KeyWords。返回不多于10个。
+@property (nonatomic, copy) NSString *keyWords;
+
+//命中的关键词KeyWords相应的分数。分数越高表示和关键词越相似，对应kws中的分数。
+@property (nonatomic, assign) CGFloat keyWordsScore;
+
+
+@end
+
+@interface QNPiece : NSObject
+
+//分解开始时间(音频开始时间为0), 单位毫秒
+@property (nonatomic, assign) NSInteger startTimestamp;
+//分解结束时间(音频开始时间为0), 单位毫秒
+@property (nonatomic, assign) NSInteger endTimestamp;
+//转写分解结果。
+@property (nonatomic, copy) NSString *transcribedText;
+
+@end
+
+@interface QNBestTranscription : NSObject
+
+//句子的开始时间, 单位毫秒
+@property (nonatomic, assign) NSInteger beginTimestamp;
+//句子的结束时间, 单位毫秒
+@property (nonatomic, assign) NSInteger endTimestamp;
+//转写结果
+@property (nonatomic, copy) NSString *transcribedText;
+//转写结果中包含KeyWords内容
+@property (nonatomic, strong) NSArray<QNkeyWordsType *> *keyWordsType;
+//转写结果的分解（只对final状态结果有效，返回每个字及标点的详细信息）
+@property (nonatomic, strong) NSArray<QNPiece *> *piece;
 
 @end
 
 @interface QNSpeakToTextResult : NSObject
-//服务端生成的uuid
-@property (nonatomic,copy) NSString *uuid;
-//是否是websocket最后一条数据,0:非最后一条数据,1: 最后一条数据
-@property (nonatomic,assign) NSInteger ended;
-//分片结束,当前消息的transcript为该片段最终结果，否则为partial结果
-@property (nonatomic,assign) NSInteger isFinal;
-//语音的文本, 如果final=0, 则为partinal结果
-@property (nonatomic,copy) NSString *transcript;
-//该文本所在的切片的起点(包含), 否则为-1
-@property (nonatomic,assign) NSInteger start_seq;
-//为该文本所在的切片的终点(包含)，否则为-1
-@property (nonatomic,assign) NSInteger end_seq;
-//该片段的起始时间，毫秒
-@property (nonatomic,assign) CGFloat start_time;
-//该片段的终止时间，毫秒
-@property (nonatomic,assign) CGFloat end_time;
-//是否分段开始: 1:是; 0:不是。 一般分段后返回
-@property (nonatomic,assign) NSInteger seg_begin;
-//partial结果文本, 开启needpartial后返回
-@property (nonatomic,copy) NSString *partial_transcript;
-//是否是vad分段开始说话的开始1:是分段开始说话; 0:不是。
-@property (nonatomic,assign) NSInteger spk_begin;
-//当前返回是第几个vad分段上， 从0开始
-@property (nonatomic,assign) NSInteger seg_index;
-//是否长时间静音，0:否;1:是
-@property (nonatomic,assign) NSInteger long_sil;
-//返回词语的对齐信息, 参数need_words=1时返回
-@property (nonatomic,strong) NSArray<QNWordsModel *> *words;
+
+//此识别结果是否为第一片
+@property (nonatomic, assign) BOOL isBegin;
+
+//此识别结果是否为最终结果
+@property (nonatomic, assign) BOOL isFinal;
+
+//最好的转写候选
+@property (nonatomic, strong) QNBestTranscription *bestTranscription;
 
 @end
 
