@@ -11,8 +11,10 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface QNAuthoritativeFaceParams : NSObject
 
+// 真实姓名
 @property (nonatomic, copy) NSString *realname;
 
+// 身份证号
 @property (nonatomic, copy) NSString *idcard;
 
 @end

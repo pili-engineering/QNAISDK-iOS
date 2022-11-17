@@ -17,13 +17,14 @@ NS_ASSUME_NONNULL_BEGIN
 
 + (instancetype)shareManager;
 
-/// 语音转文字
-/// @param track audio track
-/// @param params 识别请求参数
-/// @param complete 成功回调
-/// @param failure 失败回调
+// 语音转文字
+// @param track audio track
+// @param params 识别请求参数
+// @param complete 成功回调
+// @param failure 失败回调
 - (void)startDetectWithTrack:(QNTrack *)track params:(QNSpeakToTextParams *)params complete:(void (^)(QNSpeakToTextResult * _Nonnull result))complete failure:(void (^)(NSError *error))failure ;
 
+// 停止识别
 - (void)stopDetect;
 
 @end
