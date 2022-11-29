@@ -15,10 +15,10 @@ NS_ASSUME_NONNULL_BEGIN
 
 @property (nonatomic, copy) NSString *errormsg;
 
-// 相似度
+/// 相似度
 @property (nonatomic, assign) double similarity;
 
-// 是否比对通过 true 通过；false 不通过
+/// 是否比对通过 true 通过；false 不通过
 @property (nonatomic, assign) BOOL *pass;
 
 

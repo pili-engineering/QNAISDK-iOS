@@ -9,6 +9,7 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
+/// 人脸检测参数
 @interface QNFaceDetectParams : NSObject
 
 //图片类型

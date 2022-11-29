@@ -32,7 +32,6 @@ NS_ASSUME_NONNULL_BEGIN
                complete:(void (^)(QNActionLiveDetectResponse *detectResponse, QNAuthoritativeFaceResult *authResponse))complete
                 failure:(nonnull void (^)(NSError * _Nonnull error))failure;
 
-
 - (void)cancel;
 
 @end

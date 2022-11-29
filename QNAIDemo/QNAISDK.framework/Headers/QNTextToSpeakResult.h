@@ -12,7 +12,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface QNAudioResult : NSObject
 
-// 语音文件URL
+/// 语音文件URL
 @property (nonatomic, copy) NSString *audioUrl;
 
 @end
