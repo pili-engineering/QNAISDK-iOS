@@ -94,10 +94,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface QNFaceDetectResult : NSObject
 
-// 识别出的人脸数量
 @property (nonatomic, assign) NSInteger faceNum;
-
-// 人脸模型列表
 @property (nonatomic, strong) NSArray<QNFaceModel *> *faceList;
 
 @end

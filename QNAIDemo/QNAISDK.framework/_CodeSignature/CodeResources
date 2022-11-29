@@ -6,7 +6,7 @@
 	<dict>
 		<key>Frameworks/HappyDNS.framework/HappyDNS</key>
 		<data>
-		9/9j4MS2uiavry60xB8GdoYvK5M=
+		YQK32leUhjEtR+tik/Cm4QqNqM0=
 		</data>
 		<key>Frameworks/HappyDNS.framework/Info.plist</key>
 		<data>
@@ -22,7 +22,7 @@
 		</data>
 		<key>Frameworks/QNRTCKit.framework/QNRTCKit</key>
 		<data>
-		xEbokJYr5AJfz4Vra7QgdP0btU8=
+		RFVmcmOIn1OhBG6C6V2cYzPQUko=
 		</data>
 		<key>Frameworks/QNRTCKit.framework/_CodeSignature/CodeResources</key>
 		<data>
@@ -34,7 +34,7 @@
 		</data>
 		<key>Frameworks/SocketRocket.framework/SocketRocket</key>
 		<data>
-		dCtDT5Ev3rRuJ36Zz0VUTNpqUa4=
+		TLGNTLRqeXnR7DMJ4w7EomzrVAI=
 		</data>
 		<key>Frameworks/SocketRocket.framework/_CodeSignature/CodeResources</key>
 		<data>
@@ -58,7 +58,7 @@
 		</data>
 		<key>Headers/QNAISDK.h</key>
 		<data>
-		Uo+LXh/GREd6g3Ty7fIxB4rQSzQ=
+		d8gSda+Eqfwi4qJpeqpcP33MDlw=
 		</data>
 		<key>Headers/QNAISDKManager.h</key>
 		<data>
@@ -167,11 +167,11 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			9/9j4MS2uiavry60xB8GdoYvK5M=
+			YQK32leUhjEtR+tik/Cm4QqNqM0=
 			</data>
 			<key>hash2</key>
 			<data>
-			j+5hwmfu9p0hG4+On6LdBKLJh+xLoWkRLMHEXxK4p0U=
+			gTTWvtDAT6v9mLHnUBPKqQRNx0qExsR6/NZveUvjgBo=
 			</data>
 		</dict>
 		<key>Frameworks/HappyDNS.framework/Info.plist</key>
@@ -211,11 +211,11 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			xEbokJYr5AJfz4Vra7QgdP0btU8=
+			RFVmcmOIn1OhBG6C6V2cYzPQUko=
 			</data>
 			<key>hash2</key>
 			<data>
-			yqbYlbXrA8jQP+s6KcxcPLaYiLeZGuDBwVnS+aEyTy8=
+			d5UQAu1QefdmM6jdCENdQiLp0e3VlRKJ2fmSKEcVZ6c=
 			</data>
 		</dict>
 		<key>Frameworks/QNRTCKit.framework/_CodeSignature/CodeResources</key>
@@ -244,11 +244,11 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			dCtDT5Ev3rRuJ36Zz0VUTNpqUa4=
+			TLGNTLRqeXnR7DMJ4w7EomzrVAI=
 			</data>
 			<key>hash2</key>
 			<data>
-			idqHlJ3KtlAil1xSbpQXjzjFmiprtRiEu8lFx8Xaoq8=
+			uB+OIeVXUfoMaId7CJVJQ7tDBj3G0a2mmnKK8WC8vSM=
 			</data>
 		</dict>
 		<key>Frameworks/SocketRocket.framework/_CodeSignature/CodeResources</key>
@@ -310,11 +310,11 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			Uo+LXh/GREd6g3Ty7fIxB4rQSzQ=
+			d8gSda+Eqfwi4qJpeqpcP33MDlw=
 			</data>
 			<key>hash2</key>
 			<data>
-			CFzXwBy4vDE1hxhbePA7rvTKiD/J3kz2Cngsn8JaXVE=
+			owfk/moi8GsdDLJTCOwEQaIeLyz8l6NQHtv8D5FoQSY=
 			</data>
 		</dict>
 		<key>Headers/QNAISDKManager.h</key>

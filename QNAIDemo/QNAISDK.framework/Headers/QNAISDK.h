@@ -41,6 +41,8 @@ FOUNDATION_EXPORT double QNAISDKVersionNumber;
 //! Project version string for QNAISDK.
 FOUNDATION_EXPORT const unsigned char QNAISDKVersionString[];
 
+
+
 // In this header, you should import all the public headers of your framework using statements like #import <QNAISDK/PublicHeader.h>
 
 

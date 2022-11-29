@@ -45,6 +45,15 @@ NS_ASSUME_NONNULL_BEGIN
     
 //最多处理人脸的数目，默认值为1，根据人脸检测排序类型检测图片中排序第一的人脸（默认为人脸面积最大的人脸），最大值120
 @property (nonatomic, assign) NSInteger maxFaceNum;
+    
+////采集图片大小控制 - 目标宽，默认值 240
+//@property (nonatomic, assign) NSInteger captureWidth;
+//
+////采集图片大小控制 - 目标高 默认值 320
+//@property (nonatomic, assign) NSInteger captureHeight;
+//
+////采集图片质量控制 默认值 90
+//@property (nonatomic, assign) NSInteger captureQuality;
 
 @end
 

@@ -8,6 +8,13 @@
 #import <Foundation/Foundation.h>
 #import "QNActionLiveDetectResponse.h"
 
+typedef enum{
+    QNAuthorityActionFaceBlink, //眨眼
+    QNAuthorityActionFaceMouth,//张嘴
+    QNAuthorityActionFaceNode,//点头
+    QNAuthorityActionFaceShake,//摇头
+}QNAuthorityActionFaceType;
+
 NS_ASSUME_NONNULL_BEGIN
 
 @class QNTrack,QNAuthoritativeFaceParams,QNAuthoritativeFaceResult;
@@ -32,6 +39,11 @@ NS_ASSUME_NONNULL_BEGIN
                complete:(void (^)(QNActionLiveDetectResponse *detectResponse, QNAuthoritativeFaceResult *authResponse))complete
                 failure:(nonnull void (^)(NSError * _Nonnull error))failure;
 
+
+//// 开始权威动作活体检测
+//- (void)startDetectWithTrack:(QNTrack *)track actionTypes:(NSArray*)actionTypes params:(QNAuthoritativeFaceParams *)params;
+//
+//- (void)detectComplete:(void (^)(QNActionLiveDetectResponse *result,QNAuthoritativeFaceResult *authoritativeResult))complete failure:(nonnull void (^)(NSError * _Nonnull error))failure;
 
 - (void)cancel;
 
