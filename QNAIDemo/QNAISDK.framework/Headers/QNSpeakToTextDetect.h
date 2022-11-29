@@ -24,6 +24,8 @@ NS_ASSUME_NONNULL_BEGIN
 /// @param failure 失败回调
 - (void)startDetectWithTrack:(QNTrack *)track params:(QNSpeakToTextParams *)params complete:(void (^)(QNSpeakToTextResult * _Nonnull result))complete failure:(void (^)(NSError *error))failure ;
 
+
+/// 停止识别
 - (void)stopDetect;
 
 @end

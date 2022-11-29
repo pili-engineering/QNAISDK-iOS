@@ -6,7 +6,7 @@
 	<dict>
 		<key>Frameworks/HappyDNS.framework/HappyDNS</key>
 		<data>
-		YQK32leUhjEtR+tik/Cm4QqNqM0=
+		ohN6vAj4s6f667jOLH5GPVDVr+8=
 		</data>
 		<key>Frameworks/HappyDNS.framework/Info.plist</key>
 		<data>
@@ -22,7 +22,7 @@
 		</data>
 		<key>Frameworks/QNRTCKit.framework/QNRTCKit</key>
 		<data>
-		RFVmcmOIn1OhBG6C6V2cYzPQUko=
+		TdVnUiAf7SEyTJQdHw7MlLxs0t4=
 		</data>
 		<key>Frameworks/QNRTCKit.framework/_CodeSignature/CodeResources</key>
 		<data>
@@ -34,7 +34,7 @@
 		</data>
 		<key>Frameworks/SocketRocket.framework/SocketRocket</key>
 		<data>
-		TLGNTLRqeXnR7DMJ4w7EomzrVAI=
+		ADXttzUGszsDKpRJPEDQCoM56NE=
 		</data>
 		<key>Frameworks/SocketRocket.framework/_CodeSignature/CodeResources</key>
 		<data>
@@ -78,19 +78,19 @@
 		</data>
 		<key>Headers/QNAuthoritativeFaceParams.h</key>
 		<data>
-		oozSM24xXipMV1Ac7nms36kHNWg=
+		7F7OOH+4zTIdJdLG3yedpBIOQaw=
 		</data>
 		<key>Headers/QNAuthoritativeFaceResult.h</key>
 		<data>
-		AS8Y00abYinxW8NwZ/GAl8hilqY=
+		33ydUdNj4p1Qd4UDXQby/7/PJb4=
 		</data>
 		<key>Headers/QNAuthorityActionFaceComparer.h</key>
 		<data>
-		/yJPVFhLQtf6+o/aGaT1ys3wU6o=
+		bJW7yAFM1wfjyptext25nBavqsM=
 		</data>
 		<key>Headers/QNFaceCompare.h</key>
 		<data>
-		Bvlc1o6voXv0r4XCynBB0DXpYaY=
+		+qoJorgZgJzcpGoox10DNFHlP7g=
 		</data>
 		<key>Headers/QNFaceCompareParams.h</key>
 		<data>
@@ -106,11 +106,11 @@
 		</data>
 		<key>Headers/QNFaceDetectParams.h</key>
 		<data>
-		b67oMa5OqAcSSFYDXx71SI01gvE=
+		ccRjRCPTbodhspv3Zl3SF8y6y/I=
 		</data>
 		<key>Headers/QNFaceDetectResponse.h</key>
 		<data>
-		FzEQZCPghvbNwL+znZzQC52v/rU=
+		1a1lKPbAGp7SDzf8LpNYf6YlkcU=
 		</data>
 		<key>Headers/QNFlashLiveDetect.h</key>
 		<data>
@@ -130,7 +130,7 @@
 		</data>
 		<key>Headers/QNSpeakToTextDetect.h</key>
 		<data>
-		c/hDHRiL0DORb3ddkuSjQREgHhI=
+		QD/7r5oHBUYxc3FSkvmxh7bc6zM=
 		</data>
 		<key>Headers/QNSpeakToTextParams.h</key>
 		<data>
@@ -150,7 +150,7 @@
 		</data>
 		<key>Headers/QNTextToSpeakResult.h</key>
 		<data>
-		UprysVJHcZRxjv7AXMmBWcG/27w=
+		VhV5+sDFzxpXUXFBclGR+GJdWSM=
 		</data>
 		<key>Info.plist</key>
 		<data>
@@ -167,11 +167,11 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			YQK32leUhjEtR+tik/Cm4QqNqM0=
+			ohN6vAj4s6f667jOLH5GPVDVr+8=
 			</data>
 			<key>hash2</key>
 			<data>
-			gTTWvtDAT6v9mLHnUBPKqQRNx0qExsR6/NZveUvjgBo=
+			iUXl35zr8t7TbQKy1RTZvRhb72wzVf+RdtX1Mgl22ug=
 			</data>
 		</dict>
 		<key>Frameworks/HappyDNS.framework/Info.plist</key>
@@ -211,11 +211,11 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			RFVmcmOIn1OhBG6C6V2cYzPQUko=
+			TdVnUiAf7SEyTJQdHw7MlLxs0t4=
 			</data>
 			<key>hash2</key>
 			<data>
-			d5UQAu1QefdmM6jdCENdQiLp0e3VlRKJ2fmSKEcVZ6c=
+			zGW91sJ7u9xw2gGEzMx3kInIZzn9r/pdlanYKwQyxOU=
 			</data>
 		</dict>
 		<key>Frameworks/QNRTCKit.framework/_CodeSignature/CodeResources</key>
@@ -244,11 +244,11 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			TLGNTLRqeXnR7DMJ4w7EomzrVAI=
+			ADXttzUGszsDKpRJPEDQCoM56NE=
 			</data>
 			<key>hash2</key>
 			<data>
-			uB+OIeVXUfoMaId7CJVJQ7tDBj3G0a2mmnKK8WC8vSM=
+			7Dv62GT3Sk5EOHYYR0cO/5Ir7aGK8TQSC+dAG16trU0=
 			</data>
 		</dict>
 		<key>Frameworks/SocketRocket.framework/_CodeSignature/CodeResources</key>
@@ -365,44 +365,44 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			oozSM24xXipMV1Ac7nms36kHNWg=
+			7F7OOH+4zTIdJdLG3yedpBIOQaw=
 			</data>
 			<key>hash2</key>
 			<data>
-			60ckQlb8ZEzXu0+SpqBLNYo2XB0oM0lvAdHKdPV6hmY=
+			8IwFW+2FE7i+MosmzAmDc3WvQW1HsyLCzPbRs3udi84=
 			</data>
 		</dict>
 		<key>Headers/QNAuthoritativeFaceResult.h</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			AS8Y00abYinxW8NwZ/GAl8hilqY=
+			33ydUdNj4p1Qd4UDXQby/7/PJb4=
 			</data>
 			<key>hash2</key>
 			<data>
-			gLAFIHV+qUAO+Hcvbfj8gTIAtNrSxEdBILmdUS0wONg=
+			zST3O5RtXnj3ACtNb0e+Fzvf+mpBt/7aoKKuWTArEB0=
 			</data>
 		</dict>
 		<key>Headers/QNAuthorityActionFaceComparer.h</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			/yJPVFhLQtf6+o/aGaT1ys3wU6o=
+			bJW7yAFM1wfjyptext25nBavqsM=
 			</data>
 			<key>hash2</key>
 			<data>
-			i5YJgngSPI9wPp4tJDkwWDl+5nfoBdK0Lv/unSecCuM=
+			NVlbPsR683KelaxjgIM3ZE/RTcxV2Tbk0gLR1Y63454=
 			</data>
 		</dict>
 		<key>Headers/QNFaceCompare.h</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			Bvlc1o6voXv0r4XCynBB0DXpYaY=
+			+qoJorgZgJzcpGoox10DNFHlP7g=
 			</data>
 			<key>hash2</key>
 			<data>
-			Ha7EP2zef+JplvM4Sfi1VgMbyxSgxdy5vJvRhwVNhlM=
+			u1HtTIzPCjhtL4wH86ZzA4QZAAmczAh3lAtMLoZ6At0=
 			</data>
 		</dict>
 		<key>Headers/QNFaceCompareParams.h</key>
@@ -442,22 +442,22 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			b67oMa5OqAcSSFYDXx71SI01gvE=
+			ccRjRCPTbodhspv3Zl3SF8y6y/I=
 			</data>
 			<key>hash2</key>
 			<data>
-			z/sYsGQZmB/XkGX83lEGVIiAN7ZwzIWBdtxyWaMFzhw=
+			Tdr8iSOI8Aia05j4TjTiEdXvq4Or0BqNiHk8BzUxybE=
 			</data>
 		</dict>
 		<key>Headers/QNFaceDetectResponse.h</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			FzEQZCPghvbNwL+znZzQC52v/rU=
+			1a1lKPbAGp7SDzf8LpNYf6YlkcU=
 			</data>
 			<key>hash2</key>
 			<data>
-			qiSX2p9q6Md81bH0ivH3XlcXaTrGcZ+95hUjwpl9rDs=
+			1/h0N6GfmhOPP+fR16Krop/Fk1wDMeEUNG7rm0FwzTo=
 			</data>
 		</dict>
 		<key>Headers/QNFlashLiveDetect.h</key>
@@ -508,11 +508,11 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			c/hDHRiL0DORb3ddkuSjQREgHhI=
+			QD/7r5oHBUYxc3FSkvmxh7bc6zM=
 			</data>
 			<key>hash2</key>
 			<data>
-			J+mRwO/I1kkC8UNGPspaaD/Q1yDyagch3mnUhYAUbfk=
+			XGp6yxi/i8rjqX029sF/AI/zFy/yOcmRnUDfqBmOI/E=
 			</data>
 		</dict>
 		<key>Headers/QNSpeakToTextParams.h</key>
@@ -563,11 +563,11 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			UprysVJHcZRxjv7AXMmBWcG/27w=
+			VhV5+sDFzxpXUXFBclGR+GJdWSM=
 			</data>
 			<key>hash2</key>
 			<data>
-			En0naain58krXgVutEJihv8ac/Pd+lDlDa7sCd7AjJA=
+			l1zPY+FzYwQfT/kR0CqmkHXVyhgiVbS42sQ3xEXd9Lc=
 			</data>
 		</dict>
 		<key>Modules/module.modulemap</key>
